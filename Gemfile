@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 
 gem 'hydramata-translations', github: 'ndlib/hydramata-translations', branch: 'master'
+gem 'hydramata-works', github: 'ndlib/hydramata-works', branch: 'master'
 
 group :development do
   gem 'better_errors'
