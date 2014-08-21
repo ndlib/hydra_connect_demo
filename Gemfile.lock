@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ndlib/hydramata-translations.git
+  revision: ef0ef82fd9bb5d5cddac5be58fdafe66e8df159b
+  branch: master
+  specs:
+    hydramata-translations (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -285,6 +292,7 @@ DEPENDENCIES
   faker
   foreman
   high_voltage
+  hydramata-translations!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
