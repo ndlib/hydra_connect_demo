@@ -1,48 +1,12 @@
-Hydra Connect Demo
-================
+# HydraConnectDemo
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+[![Build Status](https://travis-ci.org/ndlib/hydra_connect_demo.png?branch=master)](https://travis-ci.org/ndlib/hydra_connect_demo)
+[![Code Climate](https://codeclimate.com/github/ndlib/hydra_connect_demo.png)](https://codeclimate.com/github/ndlib/hydra_connect_demo)
+[![Coverage Status](https://img.shields.io/coveralls/ndlib/hydra_connect_demo.svg)](https://coveralls.io/r/ndlib/hydra_connect_demo)
+[![API Docs](http://img.shields.io/badge/API-docs-blue.svg)](http://rubydoc.info/github/ndlib/hydra_connect_demo/master/frames/)
+[![APACHE 2 License](http://img.shields.io/badge/APACHE2-license-blue.svg)](./LICENSE)
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+## Resources
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.1.2
-- Rails 4.1.4
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+* [Contributing Guidelines](./CONTRIBUTING.md)
+* [Test related README](./spec/README.md)
