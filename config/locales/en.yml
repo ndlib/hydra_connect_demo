@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  hydramata:
+    core:
+      works:
+        article:
+          properties:
+            dc_title:
+              label: 'Title'
+              predicate: 'Title'
+              hint: "See Dublin Core Title"
+      fieldsets:
+        required:
+          name: Required Attributes
