@@ -13,19 +13,29 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
 
-gem 'hydramata-translations', github: 'ndlib/hydramata-translations', branch: 'master'
+gem 'hydramata-core', github: 'ndlib/hydramata-core', branch: 'master'
 gem 'hydramata-works', github: 'ndlib/hydramata-works', branch: 'master'
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rvm', '~> 0.1.1'
+  if ! ENV['TRAVIS']
+    gem 'binding_of_caller', :platforms=>[:mri_21]
+    gem 'guard-bundler'
+    gem 'guard-rails'
+    gem 'guard-rspec'
+    gem 'rb-fchange', :require=>false
+    gem 'rb-fsevent', :require=>false
+    gem 'rb-inotify', :require=>false
+    gem 'byebug'
+    gem 'better_errors'
+    gem 'quiet_assets'
+    gem 'yard'
+    gem 'capistrano', '~> 3.0.1'
+    gem 'capistrano-bundler'
+    gem 'capistrano-rails', '~> 1.1.0'
+    gem 'capistrano-rails-console'
+    gem 'capistrano-rvm', '~> 0.1.1'
+  end
   gem 'foreman'
-  gem 'quiet_assets'
   gem 'rails_layout'
 end
 group :development, :test do
@@ -33,6 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'rspec-given'
 end
 group :test do
   gem 'capybara'
