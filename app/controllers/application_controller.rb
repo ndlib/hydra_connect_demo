@@ -45,4 +45,14 @@ class ApplicationController < ActionController::Base
       raise RunnerNotFoundError.new(runner_container, runner_name)
     end
   end
+
+  # So you can easily invoke the public services of Hydramata.
+  # It is these services that indicate what the application can and is doing.
+  #
+  # @see Hydramata::Core::Services for the default services
+  def services
+    @services ||= Hydramata::Core::Services.new
+  end
+  helper_method :services
+
 end

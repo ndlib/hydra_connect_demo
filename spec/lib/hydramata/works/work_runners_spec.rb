@@ -34,7 +34,9 @@ module Hydramata
 
         Given(:callback) { StubCallback.new }
         Given(:callback_config) { callback.configure(:success) }
-        Given(:context) { double('Context') }
+        Given(:context) { double('Context', services: services) }
+        Given(:services) { double('Services', new_work_for: returning_object)}
+        Given(:returning_object) { double('Returning Object') }
         Given(:work_type) { 'article' }
         Given(:attributes) { {} }
 
@@ -43,9 +45,9 @@ module Hydramata
           Given(:attributes) { {} }
           Given(:runner_class) { New }
           When(:result) { runner.run(work_type, attributes) }
-          Then { expect(result[0]).to be_an_instance_of(Hydramata::Works::WorkForm) }
-          And { expect(callback.invoked[0..-2]).to eq([:success]) }
-          And { expect(callback.invoked[-1]).to be_an_instance_of(Hydramata::Works::WorkForm) }
+          Then { expect(result).to eq([returning_object]) }
+          And { expect(callback.invoked).to eq([:success, returning_object]) }
+          And { expect(services).to have_received(:new_work_for).with(runner, work_type, attributes) }
         end
 
       end

@@ -8,11 +8,8 @@ module Hydramata
     module WorkRunners
       class New < Hydramata::Core::Runner
         def run(work_type, attributes)
-          # @TODO - Extract this to a service class
-          work = Hydramata::Works::Work.new(work_type: work_type)
-          presenter = Hydramata::Works::WorkPresenter.new(work: work, presentation_context: :new)
-          form = Hydramata::Works::WorkForm.new(presenter)
-          callback(:success, form)
+          work = services.new_work_for(self, work_type, attributes)
+          callback(:success, work)
         end
       end
     end
