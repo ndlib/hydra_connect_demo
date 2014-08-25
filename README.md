@@ -22,9 +22,9 @@ Database Seeds for:
 Application:
 
 - [ ] UI for chosing which work type to create
-- [ ] UI for entering a new work
+- [X] UI for entering a new work
   - [ ] Multi-file upload
-  - [ ] Multiple predicates
+  - [X] Multiple predicates
 - [ ] UI response upon creation of a new work
   - [ ] Display informational messages
   - [ ] Redirect to a location
