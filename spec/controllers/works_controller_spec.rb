@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-
 describe WorksController do
   before(:each) do
-    described_class.runner_container = MockContainer.new(runner)
+    controller.runner_container = MockContainer.new(runner)
     allow(runner).to receive(:run).and_yield(callback)
   end
   let(:runner) { double('Runner', run: true) }
