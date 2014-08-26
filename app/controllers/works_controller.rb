@@ -5,6 +5,15 @@ class WorksController < ApplicationController
 
   self.runner_container = Hydramata::Works::WorkRunners
 
+  def available_types
+    run do |on|
+      on.success do |work_types|
+        @work_types = work_types
+        respond_with(@work_types)
+      end
+    end
+  end
+
   def new
     run(work_type, new_work_params) do |on|
       on.success do |work|

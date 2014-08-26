@@ -9,6 +9,12 @@ module Hydramata
           callback(:success, work)
         end
       end
+      class AvailableType < Hydramata::Core::Runner
+        def run
+          work_types = services.available_work_types(self)
+          callback(:success, work_types)
+        end
+      end
     end
   end
 end
