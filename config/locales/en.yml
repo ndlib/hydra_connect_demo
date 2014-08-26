@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   hydramata:
     core:
-      works:
+      work_types:
         article:
           properties:
             dc_title:
