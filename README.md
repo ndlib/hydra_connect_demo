@@ -52,7 +52,7 @@ Application:
   - [ ] Add a custom show partial for a property set
   - [ ] Add a custom show partial for a property
 - [ ] Leverage Translations
-  - [ ] For work type name
+  - [X] For work type name
   - [ ] For predicate label and hints
   - [X] For fieldset legend
   - [ ] For informational messages
