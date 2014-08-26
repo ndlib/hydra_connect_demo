@@ -1,0 +1,9 @@
+<ul class="available-types">
+  <% @work_types.each do |work_type| %>
+    <li class="work-type">
+      <h3 class="name"><%= work_type.name %></h3>
+      <p class="description"><%= work_type.description %></p>
+      <a class="add-button btn btn-primary" href="<%= new_work_path(work_type: work_type)%>">Add New</a>
+    </li>
+  <% end %>
+</ul>

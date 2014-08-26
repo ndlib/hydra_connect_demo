@@ -23,6 +23,20 @@ describe WorksController do
     end
   end
 
+  context "GET :available_types" do
+    render_views(false)
+    let(:work_types) { [work_type] }
+    let(:work_type) { double('Work Type') }
+    it "assigns @work_types" do
+      expect(callback).to receive(:success).and_yield(work_types)
+
+      get :available_types
+
+      expect(assigns(:work_types)).to eq([work_type])
+      expect(runner).to have_received(:run).with(controller)
+    end
+  end
+
   class MockContainer
 
     def initialize(runner)
