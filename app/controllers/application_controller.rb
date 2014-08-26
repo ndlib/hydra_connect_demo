@@ -49,9 +49,9 @@ class ApplicationController < ActionController::Base
   # So you can easily invoke the public services of Hydramata.
   # It is these services that indicate what the application can and is doing.
   #
-  # @see Hydramata::Core::Services for the default services
+  # @see Hydramata::Services for the default services
   def services
-    @services ||= Hydramata::Core::Services.new
+    @services ||= Hydramata::Services.new
   end
   helper_method :services
 
