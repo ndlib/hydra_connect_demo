@@ -1,7 +1,4 @@
 require 'hydramata/core/runner'
-require 'hydramata/works/work'
-require 'hydramata/works/work_presenter'
-require 'hydramata/works/work_form'
 
 module Hydramata
   module Works

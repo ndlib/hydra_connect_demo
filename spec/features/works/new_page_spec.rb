@@ -10,4 +10,15 @@ feature 'Works#new page' do
       expect(page).to have_css('.actions input[name="commit"]')
     end
   end
+
+  scenario 'Visit the works/article/new page with input parameters' do
+    visit "works/article/new?#{ { attributes: { dc_title: ['Hello', 'World'] } }.to_query }"
+    within('form') do
+      expect(page).to have_css('.dc-title .values input[value="Hello"]')
+      expect(page).to have_css('.dc-title .values input[value="World"]')
+      expect(page).to have_css('.dc-title .values .blank-input')
+      expect(page).to have_css('.dc-abstract .values .blank-input')
+      expect(page).to have_css('.actions input[name="commit"]')
+    end
+  end
 end

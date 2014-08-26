@@ -24,6 +24,7 @@ Application:
 - [ ] UI for chosing which work type to create
 - [X] UI for entering a new work
   - [ ] Multi-file upload
+  - [X] With user input pre-loading the form
   - [X] Multiple predicates
 - [ ] UI response upon creation of a new work
   - [ ] Display informational messages
@@ -35,6 +36,7 @@ Application:
     - [ ] BONUS: Button is rendered based on state of object
 - [ ] UI for editing a new work
   - [ ] Append new files
+  - [ ] With user input to append values to predicates
   - [ ] Remove existing files
   - [ ] Modify predicate values
 - [ ] UI response upon update of an existing work
@@ -52,7 +54,7 @@ Application:
 - [ ] Leverage Translations
   - [ ] For work type name
   - [ ] For predicate label and hints
-  - [ ] For fieldset legend
+  - [X] For fieldset legend
   - [ ] For informational messages
 
 ## Resources

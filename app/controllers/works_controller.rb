@@ -16,7 +16,7 @@ class WorksController < ApplicationController
 
   private
   def new_work_params
-    params.fetch(:work) { params.class.new }.permit!
+    params.fetch(:attributes) { params.class.new }.permit!
   end
 
   def work_type

@@ -9,7 +9,7 @@ describe WorksController do
   let(:callback) { double('Callback', success: true) }
   let(:valid_session) { { } }
   let(:work) { double('Work') }
-  let(:valid_attributes) { { work_type: 'article', work: { title: 'Hello' } } }
+  let(:valid_attributes) { { work_type: 'article', attributes: { title: 'Hello' } } }
 
   context "GET :new" do
     render_views(false)
@@ -19,7 +19,7 @@ describe WorksController do
       get :new, valid_attributes, valid_session
 
       expect(assigns(:work)).to eq(work)
-      expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
+      expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:attributes))
     end
   end
 
