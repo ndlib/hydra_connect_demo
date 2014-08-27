@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/ndlib/hydramata-core.git
-  revision: 7a1f8587a867ba986f7e4f33132505251448e5e7
+  revision: f60eb7c4636091224641e5afa160ced77bf38478
   branch: master
   specs:
     hydramata-core (0.0.1)
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: 5ed63d47c50cee61c0fddd9249676d1fbb17e77f
+  revision: c94195ef3d6630fc84fb0d939e9377206bb4ca34
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)

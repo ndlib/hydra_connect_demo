@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
   #
   # @see Hydramata::Services for the default services
   def services
-    @services ||= Hydramata::Services.new
+    @services ||= Hydramata::Services.new(self)
   end
   helper_method :services
 

@@ -18,6 +18,32 @@ class WorksController < ApplicationController
     run(work_type, new_work_params) do |on|
       on.success do |work|
         @work = work
+        @work.form_options = new_and_create_form_options
+        respond_with(@work)
+      end
+    end
+  end
+
+  def create
+    run(work_type, new_work_params) do |on|
+      on.success do |work|
+        @work = work
+        respond_with do |wants|
+          wants.html { redirect_to work_path(@work) }
+        end
+      end
+      on.failure do |work|
+        @work = work
+        @work.form_options = new_and_create_form_options
+        respond_with(@work)
+      end
+    end
+  end
+
+  def show
+    run(params[:id]) do |on|
+      on.success do |work|
+        @work = work
         respond_with(@work)
       end
     end
@@ -30,5 +56,9 @@ class WorksController < ApplicationController
 
   def work_type
     params.require(:work_type)
+  end
+
+  def new_and_create_form_options
+    { url: works_path(work_type: work_type), method: :post }
   end
 end

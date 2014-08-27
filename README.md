@@ -28,10 +28,10 @@ Application:
   - [X] Multiple predicates
 - [ ] UI response upon creation of a new work
   - [ ] Display informational messages
-  - [ ] Redirect to a location
+  - [X] Redirect to a location
 - [ ] UI for showing an uploaded work
   - [ ] Link to each of the files
-  - [ ] Display each of the predicates
+  - [X] Display each of the predicates
   - [ ] A button to edit the work
     - [ ] BONUS: Button is rendered based on state of object
 - [ ] UI for editing a new work

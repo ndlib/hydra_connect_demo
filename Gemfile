@@ -14,7 +14,9 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 
 gem 'hydramata-core', github: 'ndlib/hydramata-core', branch: 'master'
+# gem 'hydramata-core', path: '../hydramata-core'
 gem 'hydramata-works', github: 'ndlib/hydramata-works', branch: 'master'
+# gem 'hydramata-works', path: '../hydramata-works'
 
 group :development do
   if ! ENV['TRAVIS']
