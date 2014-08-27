@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: 351d2fcb24711e0d320147be497c5db331ec4db8
+  revision: 5ed63d47c50cee61c0fddd9249676d1fbb17e77f
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
@@ -199,7 +199,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdf (1.1.5)
+    rdf (1.1.5.1)
     rdoc (4.1.1)
       json (~> 1.4)
     rspec (3.0.0)
