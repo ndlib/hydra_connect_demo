@@ -21,7 +21,7 @@ describe WorksController do
       get :new, valid_attributes, valid_session
 
       expect(assigns(:work)).to eq(work)
-      expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:attributes))
+      expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
     end
   end
 
@@ -36,7 +36,7 @@ describe WorksController do
         expect { post :create, valid_attributes, valid_session }.to raise_error(ActionView::MissingTemplate)
 
         expect(assigns(:work)).to eq(work)
-        expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:attributes))
+        expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
       end
     end
 
@@ -49,7 +49,7 @@ describe WorksController do
         expect { post :create, valid_attributes, valid_session }.to raise_error(ActionView::MissingTemplate)
 
         expect(assigns(:work)).to eq(work)
-        expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:attributes))
+        expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
       end
     end
   end
