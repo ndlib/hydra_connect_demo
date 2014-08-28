@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root to: 'visitors#index'
 
   # These routes are hand crafted instead of using the ubiquitous `resource :works`
