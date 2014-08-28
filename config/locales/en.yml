@@ -30,6 +30,10 @@ en:
               label: 'Title'
               predicate: 'Title'
               hint: "See Dublin Core Title"
+            dc_abstract:
+              label: 'Abstract'
+              predicate: 'Abstract'
+              hint: "See Dublin Core Abstract"
       fieldsets:
         required:
           name: Required Attributes
