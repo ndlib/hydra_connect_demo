@@ -10,7 +10,7 @@ describe WorksController do
   let(:valid_session) { { } }
   let(:work_class) { double(model_name: ActiveModel::Name.new('Work', nil, 'Work')) }
   let(:work) { double('Work', :class => work_class, :form_options= => true) }
-  let(:valid_attributes) { { work_type: 'article', attributes: { title: 'Hello' } } }
+  let(:valid_attributes) { { work_type: 'article', work: { title: 'Hello' } } }
 
   context "GET :new" do
     render_views(false)
@@ -78,6 +78,19 @@ describe WorksController do
 
       expect(assigns(:work)).to eq(work)
       expect(runner).to have_received(:run).with(controller, work_id)
+    end
+  end
+
+  context "GET :edit" do
+    let(:work_id) { '1234' }
+    render_views(false)
+    it "assigns @work" do
+      expect(callback).to receive(:success).and_yield(work)
+
+      get :edit, id: work_id, work: { dc_title: 'Title' }
+
+      expect(assigns(:work)).to eq(work)
+      expect(runner).to have_received(:run).with(controller, work_id, { dc_title: 'Title' })
     end
   end
 

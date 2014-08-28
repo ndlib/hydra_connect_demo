@@ -15,7 +15,7 @@ class WorksController < ApplicationController
   end
 
   def new
-    run(work_type, new_work_params) do |on|
+    run(work_type, work_attribute_params) do |on|
       on.success do |work|
         @work = work
         @work.form_options = new_and_create_form_options
@@ -25,7 +25,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    run(work_type, new_work_params) do |on|
+    run(work_type, work_attribute_params) do |on|
       on.success do |work|
         @work = work
         respond_with do |wants|
@@ -41,7 +41,7 @@ class WorksController < ApplicationController
   end
 
   def show
-    run(params[:id]) do |on|
+    run(work_identifier) do |on|
       on.success do |work|
         @work = work
         respond_with(@work)
@@ -49,16 +49,35 @@ class WorksController < ApplicationController
     end
   end
 
+  def edit
+    run(work_identifier, work_attribute_params) do |on|
+      on.success do |work|
+        @work = work
+        @work.form_options = edit_and_update_form_options
+        respond_with(@work)
+      end
+    end
+  end
+
   private
-  def new_work_params
-    params.fetch(:attributes) { params.class.new }.permit!
+
+  def work_attribute_params
+    params.fetch(:work) { params.class.new }.permit!
   end
 
   def work_type
     params.require(:work_type)
   end
 
+  def work_identifier
+    params.require(:id)
+  end
+
   def new_and_create_form_options
     { url: works_path(work_type: work_type), method: :post }
+  end
+
+  def edit_and_update_form_options
+    { url: work_path(work_identifier), method: :patch }
   end
 end
