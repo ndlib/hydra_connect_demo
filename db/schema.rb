@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20140822152161) do
     t.string   "itemprop_schema_dot_org"
   end
 
+  add_index "hydramata_works_predicates", ["identity"], name: "index_hydramata_works_predicates_on_identity", unique: true
+  add_index "hydramata_works_predicates", ["name_for_application_usage"], name: "index_hydramata_works_predicates_on_name_for_application_usage", unique: true
+
   create_table "hydramata_works_types", force: true do |t|
     t.string   "identity",                   null: false
     t.string   "name_for_application_usage"
@@ -56,6 +59,9 @@ ActiveRecord::Schema.define(version: 20140822152161) do
     t.datetime "updated_at"
     t.string   "itemtype_schema_dot_org"
   end
+
+  add_index "hydramata_works_types", ["identity"], name: "index_hydramata_works_types_on_identity", unique: true
+  add_index "hydramata_works_types", ["name_for_application_usage"], name: "index_hydramata_works_types_on_name_for_application_usage", unique: true
 
   create_table "hydramata_works_works", id: false, force: true do |t|
     t.string   "pid",                           null: false

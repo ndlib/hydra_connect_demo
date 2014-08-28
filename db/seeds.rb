@@ -7,22 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Environment variables (ENV['...']) can be set in the file .env file.
 
-def within_predicate_set_create_predicate_for_dublin_core(predicate_set, term)
-  name = "dc_#{term.gsub('#', '_')}"
-  predicate = Hydramata::Works::Predicates::Storage.new(identity: "http://purl.org/dc/terms/#{term}", name_for_application_usage: name)
-  predicate.save!
-  counter = predicate_set.predicate_presentation_sequences.count + 1
-  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: counter, predicate: predicate)
-end
+predicate_depositor = Hydramata::Works::Predicates::Storage.create!(identity: 'depositor')
+predicate_title = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/title', name_for_application_usage: 'dc_title', value_parser_name: 'InterrogationParser')
+predicate_abstract = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/description', name_for_application_usage: 'dc_description', value_parser_name: 'InterrogationParser')
+predicate_created = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/created', name_for_application_usage: 'dc_created', value_parser_name: 'DateParser')
 
-['article', 'document'].each do |work_type_name|
-  work_type = Hydramata::Works::WorkTypes::Storage.create!(identity: work_type_name, name_for_application_usage: work_type_name)
+predicate_language = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/language', name_for_application_usage: 'dc_language', value_parser_name: 'InterrogationParser' )
+predicate_publicher = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/publisher', name_for_application_usage: 'dc_publisher', value_parser_name: 'InterrogationParser')
+predicate_dateSubmitted = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/dateSubmitted', name_for_application_usage: 'dc_dateSubmitted', value_parser_name: 'DateParser')
+predicate_modified = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/modified', name_for_application_usage: 'dc_modified', value_parser_name: 'DateParser')
+predicate_rights = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/rights', name_for_application_usage: 'dc_rights', value_parser_name: 'InterrogationParser')
+predicate_creator = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/creator', name_for_application_usage: 'dc_creator', value_parser_name: 'InterrogationParser')
+
+['document', 'article'].each do |identifier|
+  work_type = Hydramata::Works::WorkTypes::Storage.create(identity: identifier, name_for_application_usage: identifier)
   predicate_set = Hydramata::Works::PredicateSets::Storage.create!(identity: 'required', work_type: work_type, presentation_sequence: 1, name_for_application_usage: 'required')
-
-  [
-    'title',
-    'abstract',
-  ].each do |term|
-    within_predicate_set_create_predicate_for_dublin_core(predicate_set, term)
-  end
+  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 1, predicate: predicate_title)
+  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 2, predicate: predicate_description)
 end
