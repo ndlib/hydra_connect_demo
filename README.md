@@ -10,14 +10,14 @@
 
 Database Seeds for:
 
-- Register work types:
-  - Document
-  - Article
-- Register predicates
-  - Title
-  - Abstract
-  - File
-- Associate work types and predicates
+- [X] Register work types:
+  - [X] Document
+  - [X] Article
+- [X] Register predicates
+  - [X] Title
+  - [X] Abstract
+  - [ ] File
+- [X] Associate work types and predicates
 
 Application:
 

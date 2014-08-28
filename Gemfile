@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'hydramata-core', github: 'ndlib/hydramata-core', branch: 'master'
 # gem 'hydramata-core', path: '../hydramata-core'
