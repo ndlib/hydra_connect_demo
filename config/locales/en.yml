@@ -25,6 +25,9 @@ en:
     core:
       work_types:
         article:
+          fieldsets:
+            required:
+              name: Required Article Attributes
           properties:
             dc_title:
               label: 'Title'
