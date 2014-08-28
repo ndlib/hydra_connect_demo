@@ -9,7 +9,7 @@
 
 predicate_depositor = Hydramata::Works::Predicates::Storage.create!(identity: 'depositor')
 predicate_title = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/title', name_for_application_usage: 'dc_title', value_parser_name: 'InterrogationParser')
-predicate_abstract = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/description', name_for_application_usage: 'dc_description', value_parser_name: 'InterrogationParser')
+predicate_abstract = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/abstract', name_for_application_usage: 'dc_abstract', value_parser_name: 'InterrogationParser')
 predicate_created = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/created', name_for_application_usage: 'dc_created', value_parser_name: 'DateParser')
 
 predicate_language = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/language', name_for_application_usage: 'dc_language', value_parser_name: 'InterrogationParser' )
@@ -23,5 +23,5 @@ predicate_creator = Hydramata::Works::Predicates::Storage.create!(identity: 'htt
   work_type = Hydramata::Works::WorkTypes::Storage.create(identity: identifier, name_for_application_usage: identifier)
   predicate_set = Hydramata::Works::PredicateSets::Storage.create!(identity: 'required', work_type: work_type, presentation_sequence: 1, name_for_application_usage: 'required')
   predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 1, predicate: predicate_title)
-  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 2, predicate: predicate_description)
+  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 2, predicate: predicate_abstract)
 end
