@@ -7,6 +7,8 @@ ActiveAdmin.register Hydramata::Works::PredicatePresentationSequences::Storage, 
       link_to presentation.predicate.identity, admin_predicate_path(presentation.predicate)
     end
     column :presentation_sequence
+    column :created_at
+    column :updated_at
     actions
   end
 end
