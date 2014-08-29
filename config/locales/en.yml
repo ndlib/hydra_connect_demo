@@ -27,7 +27,7 @@ en:
         article:
           fieldsets:
             required:
-              name: Required Article Attributes
+              label: Required Article Attributes
           properties:
             dc_title:
               label: 'Title'
@@ -47,4 +47,4 @@ en:
               url: "/works/edit/%{to_param}"
       fieldsets:
         required:
-          name: Required Attributes
+          label: Required Attributes
