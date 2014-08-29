@@ -17,14 +17,14 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-core.git
-  revision: f60eb7c4636091224641e5afa160ced77bf38478
+  revision: 1a730e1c0b1394498f672e0809648605b65b7327
   branch: master
   specs:
     hydramata-core (0.0.1)
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: 3e09b7135a71ee4745888ea8d64b2bae641dee51
+  revision: 80a2a4e39bfddbf707decc40a5fdd09c10c2efa3
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
@@ -189,7 +189,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.4.0)
+    minitest (5.4.1)
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)

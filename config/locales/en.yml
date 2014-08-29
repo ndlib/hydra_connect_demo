@@ -37,6 +37,14 @@ en:
               label: 'Abstract'
               predicate: 'Abstract'
               hint: "See Dublin Core Abstract"
+          actions:
+            create:
+              type: submit
+              label: Create an Article
+            edit:
+              type: link
+              label: Edit this Article
+              url: "/works/edit/%{to_param}"
       fieldsets:
         required:
           name: Required Attributes

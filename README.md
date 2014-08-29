@@ -32,7 +32,7 @@ Application:
 - [ ] UI for showing an uploaded work
   - [ ] Link to each of the files
   - [X] Display each of the predicates
-  - [ ] A button to edit the work
+  - [X] A button to edit the work
     - [ ] BONUS: Button is rendered based on state of object
 - [ ] UI for editing a new work
   - [ ] Append new files
