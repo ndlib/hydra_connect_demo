@@ -36,9 +36,9 @@ Application:
     - [ ] BONUS: Button is rendered based on state of object
 - [ ] UI for editing a new work
   - [ ] Append new files
-  - [ ] With user input to append values to predicates
+  - [X] With user input to append values to predicates
   - [ ] Remove existing files
-  - [ ] Modify predicate values
+  - [X] Modify predicate values
 - [ ] UI response upon update of an existing work
   - [ ] Display informational messages
   - [ ] Redirect to a location
