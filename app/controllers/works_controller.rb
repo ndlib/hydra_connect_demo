@@ -32,6 +32,12 @@ class WorksController < ApplicationController
           wants.html { redirect_to work_path(@work) }
         end
       end
+      on.created_with_invalid_data do |work|
+        @work = work
+        respond_with do |wants|
+          wants.html { redirect_to edit_work_path(@work) }
+        end
+      end
       on.failure do |work|
         @work = work
         @work.form_options = new_and_create_form_options

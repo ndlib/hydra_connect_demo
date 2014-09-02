@@ -8,7 +8,12 @@
 # Environment variables (ENV['...']) can be set in the file .env file.
 
 predicate_depositor = Hydramata::Works::Predicates::Storage.create!(identity: 'depositor')
-predicate_title = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/title', name_for_application_usage: 'dc_title', value_parser_name: 'InterrogationParser')
+predicate_title = Hydramata::Works::Predicates::Storage.create!(
+  identity: 'http://purl.org/dc/terms/title',
+  name_for_application_usage: 'dc_title',
+  value_parser_name: 'InterrogationParser',
+  validations: '{ "presence_of_each": true }'
+)
 predicate_abstract = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/abstract', name_for_application_usage: 'dc_abstract', value_parser_name: 'InterrogationParser')
 predicate_created = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/created', name_for_application_usage: 'dc_created', value_parser_name: 'DateParser')
 

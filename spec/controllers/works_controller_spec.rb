@@ -27,15 +27,28 @@ describe WorksController do
 
   context "POST :create" do
     render_views(false)
+    let(:callback) { double('Callback', success: true, failure: true, created_with_invalid_data: true) }
     let(:work) { double('Work', class: work_class, to_param: '123') }
     context 'success' do
       it "assigns @work" do
         expect(callback).to receive(:success).and_yield(work)
-        allow(controller).to receive(:respond_with).and_return(true)
 
-        expect { post :create, valid_attributes, valid_session }.to raise_error(ActionView::MissingTemplate)
+        post :create, valid_attributes, valid_session
+
+        expect(response).to redirect_to(work_path(work))
+        expect(assigns(:work)).to eq(work)
+        expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
+      end
+    end
+
+    context 'created_with_invalid_data' do
+      it "assigns @work" do
+        expect(callback).to receive(:created_with_invalid_data).and_yield(work)
+
+        post :create, valid_attributes, valid_session
 
         expect(assigns(:work)).to eq(work)
+        expect(response).to redirect_to(edit_work_path(work))
         expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
       end
     end

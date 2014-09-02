@@ -26,6 +26,7 @@ Application:
   - [ ] Multi-file upload
   - [X] With user input pre-loading the form
   - [X] Multiple predicates
+  - [X] Persist data even though it is not valid
 - [ ] UI response upon creation of a new work
   - [ ] Display informational messages
   - [X] Redirect to a location
@@ -43,6 +44,7 @@ Application:
   - [ ] Display informational messages
   - [ ] Redirect to a location
 - [ ] Amend an existing Work Type
+  - [ ] Determine why Active Admin is not behaving correctly when updating
   - [ ] Add a new predicate to the work type
     - [ ] Edit an existing work of the given type to show new predicate
   - [ ] Remove an existing predicate from a work type
