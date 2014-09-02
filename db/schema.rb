@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828144546) do
+ActiveRecord::Schema.define(version: 20140902195124) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,11 +79,14 @@ ActiveRecord::Schema.define(version: 20140828144546) do
   add_index "hydramata_works_types", ["name_for_application_usage"], name: "index_hydramata_works_types_on_name_for_application_usage", unique: true
 
   create_table "hydramata_works_works", id: false, force: true do |t|
-    t.string   "pid",                           null: false
-    t.string   "work_type",                     null: false
+    t.string   "pid",                                               null: false
+    t.string   "work_type",                                         null: false
     t.text     "properties", limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",      limit: 32,         default: "unknown", null: false
   end
+
+  add_index "hydramata_works_works", ["state"], name: "index_hydramata_works_works_on_state"
 
 end
