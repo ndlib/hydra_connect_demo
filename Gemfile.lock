@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: f6a53fe6e70399679c943939cda4c9022a144c75
+  revision: 80c044c1e040f1a6ded0f613b839ecbb72013bf9
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
@@ -293,7 +293,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.1.3)
+    sprockets-rails (2.1.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
