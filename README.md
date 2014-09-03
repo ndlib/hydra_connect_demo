@@ -28,7 +28,7 @@ Application:
   - [X] Multiple predicates
   - [X] Persist data even though it is not valid
 - [ ] UI response upon creation of a new work
-  - [ ] Display informational messages
+  - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
 - [ ] UI for showing an uploaded work
   - [ ] Link to each of the files
@@ -41,8 +41,9 @@ Application:
   - [ ] Remove existing files
   - [X] Modify predicate values
 - [ ] UI response upon update of an existing work
-  - [ ] Display informational messages
+  - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
+- [ ] Meaningful JSON document for /works/article/new
 - [ ] Amend an existing Work Type
   - [ ] Determine why Active Admin is not behaving correctly when updating
   - [ ] Add a new predicate to the work type
@@ -57,7 +58,7 @@ Application:
   - [X] For work type name
   - [X] For predicate label and hints
   - [X] For fieldset legend
-  - [ ] For informational messages
+  - [ ] BONUS: For informational messages
 
 ## Resources
 
