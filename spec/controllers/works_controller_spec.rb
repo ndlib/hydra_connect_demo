@@ -30,7 +30,7 @@ describe WorksController do
     render_views(false)
     it "assigns @work" do
       expect(callback).to receive(:success).and_yield(work)
-      expect(work).to receive(:form_options=).with(url: works_path(work_type: 'article'), method: :post)
+      expect(work).to receive(:form_options=).with(url: create_work_path(work_type: 'article'), method: :post)
 
       get :new, valid_attributes, valid_session
 
@@ -71,7 +71,7 @@ describe WorksController do
       it "assigns @work" do
         expect(callback).to receive(:failure).and_yield(work)
         allow(controller).to receive(:respond_with).and_return(true)
-        expect(work).to receive(:form_options=).with(url: works_path(work_type: 'article'), method: :post)
+        expect(work).to receive(:form_options=).with(url: create_work_path(work_type: 'article'), method: :post)
 
         expect { post :create, valid_attributes, valid_session }.to raise_error(ActionView::MissingTemplate)
 
@@ -104,6 +104,49 @@ describe WorksController do
 
       expect(assigns(:work)).to eq(work)
       expect(runner).to have_received(:run).with(controller, work_id, { dc_title: 'Title' })
+    end
+  end
+
+  context "PATCH :update" do
+    render_views(false)
+    let(:callback) { double('Callback', success: true, failure: true, updated_with_invalid_data: true) }
+    let(:work) { double('Work', class: work_class, to_param: '123') }
+    let(:params) { { id: work.to_param, work: { title: 'Hello' } } }
+    context 'success' do
+      it "assigns @work" do
+        expect(callback).to receive(:success).and_yield(work)
+
+        patch :update, params, valid_session
+
+        expect(response).to redirect_to(work_path(work))
+        expect(assigns(:work)).to eq(work)
+        expect(runner).to have_received(:run).with(controller, params.fetch(:id), params.fetch(:work))
+      end
+    end
+
+    context 'updated_with_invalid_data' do
+      it "assigns @work" do
+        expect(callback).to receive(:updated_with_invalid_data).and_yield(work)
+
+        patch :update, params, valid_session
+
+        expect(assigns(:work)).to eq(work)
+        expect(response).to redirect_to(edit_work_path(work))
+        expect(runner).to have_received(:run).with(controller, params.fetch(:id), params.fetch(:work))
+      end
+    end
+
+    context 'failure' do
+      it "assigns @work" do
+        expect(callback).to receive(:failure).and_yield(work)
+        allow(controller).to receive(:respond_with).and_return(true)
+        expect(work).to receive(:form_options=).with(url: update_work_path(work.to_param), method: :patch)
+
+        expect { patch :update, params, valid_session }.to raise_error(ActionView::MissingTemplate)
+
+        expect(assigns(:work)).to eq(work)
+        expect(runner).to have_received(:run).with(controller, params.fetch(:id), params.fetch(:work))
+      end
     end
   end
 

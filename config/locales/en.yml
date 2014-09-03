@@ -44,7 +44,20 @@ en:
             edit:
               type: link
               label: Edit this Article
-              url: "/works/edit/%{to_param}"
+            update:
+              type: submit
+              label: Update this Article
       fieldsets:
         required:
           label: Required Attributes
+      actions:
+        create:
+          type: submit
+          label: Create a Work
+        edit:
+          type: link
+          label: Edit this Work
+          url: "/works/%{to_param}/edit"
+        update:
+          type: submit
+          label: Update this Work

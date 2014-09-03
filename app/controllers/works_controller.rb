@@ -65,6 +65,28 @@ class WorksController < ApplicationController
     end
   end
 
+  def update
+    run(work_identifier, work_attribute_params) do |on|
+      on.success do |work|
+        @work = work
+        respond_with do |wants|
+          wants.html { redirect_to work_path(@work) }
+        end
+      end
+      on.updated_with_invalid_data do |work|
+        @work = work
+        respond_with do |wants|
+          wants.html { redirect_to edit_work_path(@work) }
+        end
+      end
+      on.failure do |work|
+        @work = work
+        @work.form_options = edit_and_update_form_options
+        respond_with(@work)
+      end
+    end
+  end
+
   private
 
   def work_attribute_params
@@ -80,10 +102,10 @@ class WorksController < ApplicationController
   end
 
   def new_and_create_form_options
-    { url: works_path(work_type: work_type), method: :post }
+    { url: create_work_path(work_type: work_type), method: :post }
   end
 
   def edit_and_update_form_options
-    { url: work_path(work_identifier), method: :patch }
+    { url: update_work_path(work_identifier), method: :patch }
   end
 end
