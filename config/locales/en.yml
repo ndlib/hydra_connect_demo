@@ -28,15 +28,6 @@ en:
           fieldsets:
             required:
               label: Required Article Attributes
-          properties:
-            dc_title:
-              label: 'Title'
-              predicate: 'Title'
-              hint: "See Dublin Core Title"
-            dc_abstract:
-              label: 'Abstract'
-              predicate: 'Abstract'
-              hint: "See Dublin Core Abstract"
           actions:
             create:
               label: Create an Article
@@ -44,6 +35,13 @@ en:
               label: Edit this Article
             update:
               label: Update this Article
+      properties:
+        dc_title:
+          label: 'Title'
+          hint: "See Dublin Core Title"
+        dc_abstract:
+          label: 'Abstract'
+          hint: "See Dublin Core Abstract"
       fieldsets:
         required:
           label: Required Attributes
