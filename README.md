@@ -42,7 +42,7 @@ Application:
   - [X] Modify predicate values
 - [ ] UI response upon update of an existing work
   - [ ] Display informational messages
-  - [ ] Redirect to a location
+  - [X] Redirect to a location
 - [ ] Amend an existing Work Type
   - [ ] Determine why Active Admin is not behaving correctly when updating
   - [ ] Add a new predicate to the work type
@@ -55,7 +55,7 @@ Application:
   - [ ] Add a custom show partial for a property
 - [ ] Leverage Translations
   - [X] For work type name
-  - [ ] For predicate label and hints
+  - [X] For predicate label and hints
   - [X] For fieldset legend
   - [ ] For informational messages
 
