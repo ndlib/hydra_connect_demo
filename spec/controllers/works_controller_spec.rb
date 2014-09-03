@@ -12,6 +12,20 @@ describe WorksController do
   let(:work) { double('Work', :class => work_class, :form_options= => true) }
   let(:valid_attributes) { { work_type: 'article', work: { title: 'Hello' } } }
 
+  context "GET :available_types" do
+    render_views(false)
+    let(:work_types) { [work_type] }
+    let(:work_type) { double('Work Type') }
+    it "assigns @work_types" do
+      expect(callback).to receive(:success).and_yield(work_types)
+
+      get :available_types
+
+      expect(assigns(:work_types)).to eq([work_type])
+      expect(runner).to have_received(:run).with(controller)
+    end
+  end
+
   context "GET :new" do
     render_views(false)
     it "assigns @work" do
@@ -64,20 +78,6 @@ describe WorksController do
         expect(assigns(:work)).to eq(work)
         expect(runner).to have_received(:run).with(controller, valid_attributes.fetch(:work_type), valid_attributes.fetch(:work))
       end
-    end
-  end
-
-  context "GET :available_types" do
-    render_views(false)
-    let(:work_types) { [work_type] }
-    let(:work_type) { double('Work Type') }
-    it "assigns @work_types" do
-      expect(callback).to receive(:success).and_yield(work_types)
-
-      get :available_types
-
-      expect(assigns(:work_types)).to eq([work_type])
-      expect(runner).to have_received(:run).with(controller)
     end
   end
 
