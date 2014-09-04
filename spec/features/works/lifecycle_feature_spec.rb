@@ -21,6 +21,18 @@ feature 'Works#available_types page' do
         expect(page).to have_css('#label_for_work_dc_abstract', text: 'Abstract')
         fill_in('work_dc_abstract_0', with: 'My Abstract')
       end
+
+      within('fieldset.optional') do
+        expect(page).to have_css('#label_for_work_attachment', text: I18n.t('hydramata.core.properties.attachment.label'))
+        attach_file(
+          'work_attachment_0',
+          [
+            File.expand_path('../../../../LICENSE', __FILE__),
+            File.expand_path('../../../../README.md', __FILE__)
+          ]
+        )
+      end
+
       # Create Work
       find('.actions input[name="commit"]').click
     end
@@ -31,6 +43,8 @@ feature 'Works#available_types page' do
     identity = page.current_path.split("/").last
     expect(page).to have_css('.required .metadata .value.dc-title', text: 'My Title')
     expect(page).to have_css('.required .metadata .value.dc-abstract', text: 'My Abstract')
+    expect(page).to have_css('.optional .metadata .value.attachment a', text: 'README.md')
+    expect(page).to have_css('.optional .metadata .value.attachment a', text: 'LICENSE')
     expect(page).to have_css(%(.actions a[href="#{edit_work_path(identity)}"]), text: "Edit this Article")
     find(%(.actions a[href="#{edit_work_path(identity)}"])).click
 
