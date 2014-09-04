@@ -23,7 +23,7 @@ Application:
 
 - [X] UI for chosing which work type to create
 - [X] UI for entering a new work
-  - [ ] Multi-file upload
+  - [X] Multi-file upload
   - [X] With user input pre-loading the form
   - [X] Multiple predicates
   - [X] Persist data even though it is not valid
