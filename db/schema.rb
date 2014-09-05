@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20140904194349) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "hydramata_works_attachments", id: false, force: true do |t|
-    t.string   "pid",            null: false
+    t.string   "pid",        null: false
     t.string   "work_id"
     t.string   "predicate"
-    t.string   "attachment_uid"
+    t.string   "file_uid"
+    t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

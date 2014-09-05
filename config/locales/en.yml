@@ -39,6 +39,9 @@ en:
         dc_title:
           label: 'Title'
           hint: "See Dublin Core Title"
+        attachment:
+          label: 'Associated Files'
+          hint: "Upload One or More Files"
         dc_abstract:
           label: 'Abstract'
           hint: "See Dublin Core Abstract"
