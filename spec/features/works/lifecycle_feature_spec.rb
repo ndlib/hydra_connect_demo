@@ -1,16 +1,24 @@
+require 'site_prism'
+
+class AvailableTypesPage < SitePrism::Page
+  set_url '/works/available_types'
+  element :new_document_link, %(.work-type .btn[href="/works/document/new"])
+  element :new_article_link, %(.work-type .btn[href="/works/article/new"])
+end
+
 feature 'Works#available_types page' do
   before do
     load "#{Rails.root}/db/seeds.rb"
   end
 
   scenario 'Creating a work with valid data' do
-    # Select Work Type
-    visit 'works/available_types'
-    expect(page).to have_css('.available-types .work-type .name', count: 2)
-    expect(page).to have_css('.available-types .work-type .description', count: 2)
-    expect(page).to have_css(%(.work-type .btn[href="#{new_work_path(work_type: 'document')}"]))
-    expect(page).to have_css(%(.work-type .btn[href="#{new_work_path(work_type: 'article')}"]))
-    find(%(.work-type .btn[href="#{new_work_path(work_type: 'article')}"])).click
+    available_types_page = AvailableTypesPage.new
+    available_types_page.load
+    expect(available_types_page).to have_css('.available-types .work-type .name', count: 2)
+    expect(available_types_page).to have_css('.available-types .work-type .description', count: 2)
+    expect(available_types_page).to have_new_document_link
+    expect(available_types_page).to have_new_article_link
+    available_types_page.new_article_link.click
 
     # New Work
     within('form.work') do

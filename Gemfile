@@ -51,6 +51,7 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'site_prism'
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
