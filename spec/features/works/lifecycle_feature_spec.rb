@@ -46,8 +46,8 @@ feature 'Works#available_types page' do
     expect(page).to have_css('.optional .metadata .value.attachment a', text: 'README.md')
     expect(page).to have_css('.optional .metadata .value.attachment a', text: 'LICENSE')
     expect(page).to have_css(%(.actions a[href="#{edit_work_path(identity)}"]), text: "Edit this Article")
-    find(%(.actions a[href="#{edit_work_path(identity)}"])).click
 
+    find(%(.actions a[href="#{edit_work_path(identity)}"])).click
     # Edit Work
     within('form.work') do
       expect(page).to have_css('fieldset.required caption', text: 'Required Article Attributes')
