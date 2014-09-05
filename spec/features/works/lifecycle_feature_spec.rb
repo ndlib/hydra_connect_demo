@@ -95,13 +95,12 @@ feature 'Works#available_types page' do
       find('.actions input[value="Update this Article"]').click
     end
 
-    updated_identity = page.current_path.split("/").last
-    expect(updated_identity).to eq(show_page.identity)
-    expect(page).to have_css('.required .metadata .value.dc-title', text: 'My Title')
-    expect(page).to have_css('.required .metadata .value.dc-title', text: 'Another Title')
-    expect(page).to have_css('.required .metadata .value.dc-abstract', text: 'My Abstract')
-    expect(page).to have_css('.required .metadata .value.dc-abstract', text: 'Another Abstract')
-    expect(page).to have_css(%(.actions a[href="#{edit_work_path(updated_identity)}"]), text: "Edit this Article")
+    updated_show_page = WorkShowPage.within do |the_page|
+      expect(the_page.identity).to eq(show_page.identity)
+      expect(the_page.dc_title.map(&:text)).to eq(['My Title', 'Another Title'])
+      expect(the_page.dc_abstract.map(&:text)).to eq(['My Abstract', 'Another Abstract'])
+      expect(the_page.attachment.map(&:text)).to eq(['README.md', 'LICENSE'])
+    end
   end
 
   scenario 'Creating a work with invalid data' do
