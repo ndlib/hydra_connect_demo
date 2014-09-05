@@ -83,12 +83,13 @@ feature 'Works#available_types page' do
 
   scenario 'Creating a work with invalid data' do
     # Select Work Type
-    visit 'works/available_types'
-    expect(page).to have_css('.available-types .work-type .name', count: 2)
-    expect(page).to have_css('.available-types .work-type .description', count: 2)
-    expect(page).to have_css(%(.work-type .btn[href="#{new_work_path(work_type: 'document')}"]))
-    expect(page).to have_css(%(.work-type .btn[href="#{new_work_path(work_type: 'article')}"]))
-    find(%(.work-type .btn[href="#{new_work_path(work_type: 'article')}"])).click
+    available_types_page = AvailableTypesPage.new
+    available_types_page.load
+    expect(available_types_page).to have_css('.available-types .work-type .name', count: 2)
+    expect(available_types_page).to have_css('.available-types .work-type .description', count: 2)
+    expect(available_types_page).to have_new_document_link
+    expect(available_types_page).to have_new_article_link
+    available_types_page.new_article_link.click
 
     # New Work
     within('form.work') do
