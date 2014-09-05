@@ -23,3 +23,16 @@ Rake::Task['spec'].clear
 
 task spec: 'spec:all'
 task default: 'spec:travis'
+
+namespace :db do
+  task :guard => ['environment'] do
+    case Rails.env
+    when 'test', 'development' then true
+    else
+      raise "Cannot rebuild database for '#{Rails.env}' environment."
+      exit!(-1)
+    end
+  end
+  desc 'Drop and rebuild the database'
+  task :rebuild => ['db:guard', 'db:drop', 'db:create', 'hydramata_works:install:migrations', 'db:migrate', 'db:seed']
+end
