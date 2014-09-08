@@ -46,6 +46,7 @@ Application:
     - [ ] Render a thumbnail
     - [X] Render the attachment name
   - [X] Modify predicate values
+- [X] Swap out Database persistence of works for Fedora persistence
 - [ ] UI response upon update of an existing work
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
