@@ -36,14 +36,15 @@ Application:
   - [X] A button to edit the work
     - [ ] BONUS: Button is rendered based on state of object
 - [ ] UI for editing a new work
-  - [ ] Append new files
+  - [X] Append new files
   - [X] With user input to append values to predicates
   - [ ] Remove existing files
   - [X] Modify predicate values
 - [ ] UI response upon update of an existing work
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
-- [ ] Meaningful JSON document for /works/article/new
+- [X] Meaningful JSON document for /works/article/new
+  - [ ] Better than meaningful. Something deliberate and useful.
 - [ ] Amend an existing Work Type
   - [ ] Determine why Active Admin is not behaving correctly when updating
   - [ ] Add a new predicate to the work type

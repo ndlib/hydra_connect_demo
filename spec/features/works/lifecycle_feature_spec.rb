@@ -41,6 +41,8 @@ feature 'Works#available_types page' do
       expect(the_page.dc_abstract_existing_input.map(&:value)).to eq(['My Abstract'])
       the_page.dc_title_input.set('Another Title')
       the_page.dc_abstract_input.set('Another Abstract')
+      the_page.attachment_input.set([File.expand_path('../../../../Rakefile', __FILE__)])
+
       the_page.submit_button.click
     end
 
@@ -48,7 +50,7 @@ feature 'Works#available_types page' do
       expect(the_page.identity).to eq(show_page.identity)
       expect(the_page.dc_title.map(&:text)).to eq(['My Title', 'Another Title'])
       expect(the_page.dc_abstract.map(&:text)).to eq(['My Abstract', 'Another Abstract'])
-      expect(the_page.attachment.map(&:text)).to eq(['README.md', 'LICENSE'])
+      expect(the_page.attachment.map(&:text)).to eq(['README.md', 'LICENSE', 'Rakefile'])
     end
   end
 
