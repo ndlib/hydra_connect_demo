@@ -36,9 +36,10 @@ feature 'Works#available_types page' do
     end
 
     WorkEditPage.within do |the_page|
-      expect(the_page).to be_all_there
       expect(the_page.dc_title_existing_input.map(&:value)).to eq(['My Title'])
       expect(the_page.dc_abstract_existing_input.map(&:value)).to eq(['My Abstract'])
+      expect(the_page.links_to_existing_attachments.map(&:text)).to eq(['README.md', 'LICENSE'])
+
       the_page.dc_title_input.set('Another Title')
       the_page.dc_abstract_input.set('Another Abstract')
       the_page.attachment_input.set([File.expand_path('../../../../Rakefile', __FILE__)])
@@ -63,13 +64,11 @@ feature 'Works#available_types page' do
     end
 
     WorkNewPage.within do |the_page|
-      expect(the_page).to be_all_there
       the_page.dc_abstract_input.set('My Abstract')
       the_page.submit_button.click
     end
 
     WorkEditPage.within do |the_page|
-      expect(the_page).to be_all_there
       expect(the_page.dc_title_existing_input.map(&:value)).to eq([''])
       expect(the_page.dc_abstract_existing_input.map(&:value)).to eq(['My Abstract'])
       the_page.dc_abstract_input.set('Another Abstract')

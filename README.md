@@ -32,6 +32,9 @@ Application:
   - [X] Redirect to a location
 - [ ] UI for showing an uploaded work
   - [ ] Link to each of the files
+    - [ ] Resolve link to download action
+    - [ ] Render a thumbnail
+    - [X] Render the attachment name
   - [X] Display each of the predicates
   - [X] A button to edit the work
     - [ ] BONUS: Button is rendered based on state of object
@@ -39,6 +42,9 @@ Application:
   - [X] Append new files
   - [X] With user input to append values to predicates
   - [ ] Remove existing files
+  - [ ] Show existing files
+    - [ ] Render a thumbnail
+    - [X] Render the attachment name
   - [X] Modify predicate values
 - [ ] UI response upon update of an existing work
   - [ ] BONUS: Display informational messages

@@ -54,7 +54,8 @@ class WorkEditPage < SitePrism::Page
   element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
 
   element :optional_fieldset, 'form.work fieldset.optional caption'
-  element :attachment_input, 'form.work fieldset.optional #work_attachment_0'
+  element :attachment_input, 'form.work fieldset.optional .attachment #work_attachment_0'
+  elements :links_to_existing_attachments, 'form.work fieldset.optional .attachment .values .existing-input'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
 end
