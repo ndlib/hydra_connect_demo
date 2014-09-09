@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904194349) do
+ActiveRecord::Schema.define(version: 20140909134328) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -76,6 +76,9 @@ ActiveRecord::Schema.define(version: 20140904194349) do
     t.datetime "updated_at"
     t.text     "validations"
     t.string   "itemprop_schema_dot_org"
+    t.string   "namespace_context_prefix"
+    t.string   "namespace_context_url"
+    t.string   "namespace_context_name"
   end
 
   add_index "hydramata_works_predicates", ["identity"], name: "index_hydramata_works_predicates_on_identity", unique: true

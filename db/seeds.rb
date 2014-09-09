@@ -10,8 +10,12 @@
 predicate_depositor = Hydramata::Works::Predicates::Storage.create!(identity: 'depositor')
 predicate_title = Hydramata::Works::Predicates::Storage.create!(
   identity: 'http://purl.org/dc/terms/title',
+  namespace_context_name: 'dc:title',
+  namespace_context_prefix: 'dc',
+  namespace_context_url: 'http://purl.org/dc/terms/',
   name_for_application_usage: 'dc_title',
   value_parser_name: 'InterrogationParser',
+  datastream_name: 'descMetadata',
   validations: '{ "presence_of_each": true }'
 )
 predicate_attachment = Hydramata::Works::Predicates::Storage.create!(
@@ -19,7 +23,15 @@ predicate_attachment = Hydramata::Works::Predicates::Storage.create!(
   name_for_application_usage: 'attachment',
   value_parser_name: 'AttachmentParser'
 )
-predicate_abstract = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/abstract', name_for_application_usage: 'dc_abstract', value_parser_name: 'InterrogationParser')
+predicate_abstract = Hydramata::Works::Predicates::Storage.create!(
+  identity: 'http://purl.org/dc/terms/abstract',
+  namespace_context_prefix: 'dc',
+  namespace_context_name: 'dc:abstract',
+  namespace_context_url: 'http://purl.org/dc/terms/',
+  name_for_application_usage: 'dc_abstract',
+  value_parser_name: 'InterrogationParser',
+  datastream_name: 'descMetadata'
+)
 predicate_created = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/created', name_for_application_usage: 'dc_created', value_parser_name: 'DateParser')
 
 predicate_language = Hydramata::Works::Predicates::Storage.create!(identity: 'http://purl.org/dc/terms/language', name_for_application_usage: 'dc_language', value_parser_name: 'InterrogationParser' )

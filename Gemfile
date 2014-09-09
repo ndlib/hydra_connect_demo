@@ -18,6 +18,8 @@ gem 'hydramata-core', github: 'ndlib/hydramata-core', branch: 'master'
 # gem 'hydramata-core', path: '../hydramata-core'
 gem 'hydramata-works', github: 'ndlib/hydramata-works', branch: 'master'
 # gem 'hydramata-works', path: '../hydramata-works'
+gem 'rof', github: 'ndlib/rof', branch: 'master'
+# gem 'rof', path: '../rof'
 
 group :development do
   if ! ENV['TRAVIS']
