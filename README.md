@@ -31,9 +31,8 @@ Application:
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
 - [ ] UI for showing an uploaded work
-  - [ ] Link to each of the files
+  - [X] Link to each of the files
     - [X] Resolve link to download action
-    - [ ] Render a thumbnail
     - [X] Render the attachment name
   - [X] Display each of the predicates
   - [X] A button to edit the work

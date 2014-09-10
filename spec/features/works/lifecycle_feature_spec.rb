@@ -76,4 +76,27 @@ feature 'Works#available_types page' do
       the_page.dc_abstract_input.set('Another Abstract')
     end
   end
+
+  scenario 'Making sure the attachment is clickable and downloadable' do
+    attachment_path = File.expand_path('../../../../LICENSE', __FILE__)
+    # Select Work Type
+    WorksAvailableTypesPage.within do |the_page|
+      the_page.load
+      expect(the_page).to be_all_there
+      the_page.new_article_link.click
+    end
+
+    WorkNewPage.within do |the_page|
+      the_page.dc_title_input.set('My Title')
+      the_page.attachment_input.set(attachment_path)
+      the_page.submit_button.click
+    end
+
+    WorkShowPage.within do |the_page|
+      expect(the_page).to be_all_there
+      the_page.attachment.first.click
+    end
+
+    expect(page.html).to eq(File.read(attachment_path))
+  end
 end
