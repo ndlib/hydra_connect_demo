@@ -47,6 +47,8 @@ Application:
     - [X] Render the attachment name
   - [X] Modify predicate values
 - [X] Swap out Database persistence of works for Fedora persistence
+  - [ ] BONUS: Enable creation of attachments for Fedora persistence
+- [ ] BONUS: Move data from Database to Fedora
 - [ ] UI response upon update of an existing work
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
