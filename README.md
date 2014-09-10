@@ -41,9 +41,9 @@ Application:
   - [X] Append new files
   - [X] With user input to append values to predicates
   - [ ] Remove existing files
-  - [ ] Show existing files
-    - [ ] Render a thumbnail
+  - [X] Show existing files
     - [X] Render the attachment name
+    - [X] Render link to attachment
   - [X] Modify predicate values
 - [X] Swap out Database persistence of works for Fedora persistence
   - [ ] BONUS: Enable creation of attachments for Fedora persistence
