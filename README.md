@@ -27,10 +27,10 @@ Application:
   - [X] With user input pre-loading the form
   - [X] Multiple predicates
   - [X] Persist data even though it is not valid
-- [ ] UI response upon creation of a new work
+- [X] UI response upon creation of a new work
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
-- [ ] UI for showing an uploaded work
+- [X] UI for showing an uploaded work
   - [X] Link to each of the files
     - [X] Resolve link to download action
     - [X] Render the attachment name
@@ -48,12 +48,12 @@ Application:
 - [X] Swap out Database persistence of works for Fedora persistence
   - [ ] BONUS: Enable creation of attachments for Fedora persistence
 - [ ] BONUS: Move data from Database to Fedora
-- [ ] UI response upon update of an existing work
+- [X] UI response upon update of an existing work
   - [ ] BONUS: Display informational messages
   - [X] Redirect to a location
 - [X] Meaningful JSON document for /works/article/new
-  - [ ] Better than meaningful. Something deliberate and useful.
-- [ ] Amend an existing Work Type
+  - [ ] BONUS: Better than meaningful. Something deliberate and useful.
+- [ ] Amend an existing Work Type via the UI
   - [ ] Determine why Active Admin is not behaving correctly when updating
   - [ ] Add a new predicate to the work type
     - [ ] Edit an existing work of the given type to show new predicate
@@ -63,7 +63,7 @@ Application:
   - [ ] Add a custom show partial for a work type
   - [ ] Add a custom show partial for a property set
   - [ ] Add a custom show partial for a property
-- [ ] Leverage Translations
+- [X] Leverage Translations
   - [X] For work type name
   - [X] For predicate label and hints
   - [X] For fieldset legend
