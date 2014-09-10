@@ -32,6 +32,8 @@ feature 'Works#available_types page' do
       expect(the_page.dc_title.map(&:text)).to eq(['My Title'])
       expect(the_page.dc_abstract.map(&:text)).to eq(['My Abstract'])
       expect(the_page.attachment.map(&:text)).to eq(['README.md', 'LICENSE'])
+      expect(the_page.attachment[0][:href]).to match(/^\/.*_README.md$/)
+      expect(the_page.attachment[1][:href]).to match(/^\/.*_LICENSE$/)
       the_page.edit_link.click
     end
 

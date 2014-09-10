@@ -32,7 +32,7 @@ Application:
   - [X] Redirect to a location
 - [ ] UI for showing an uploaded work
   - [ ] Link to each of the files
-    - [ ] Resolve link to download action
+    - [X] Resolve link to download action
     - [ ] Render a thumbnail
     - [X] Render the attachment name
   - [X] Display each of the predicates

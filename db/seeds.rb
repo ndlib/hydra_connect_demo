@@ -21,7 +21,8 @@ predicate_title = Hydramata::Works::Predicates::Storage.create!(
 predicate_attachment = Hydramata::Works::Predicates::Storage.create!(
   identity: 'opaque:attachment',
   name_for_application_usage: 'attachment',
-  value_parser_name: 'AttachmentParser'
+  value_parser_name: 'AttachmentParser',
+  value_presenter_class_name: 'AttachmentPresenter'
 )
 predicate_abstract = Hydramata::Works::Predicates::Storage.create!(
   identity: 'http://purl.org/dc/terms/abstract',

@@ -32,7 +32,7 @@ end
 class WorkShowPage < SitePrism::Page
   elements :dc_title, '.required .metadata .value.dc-title'
   elements :dc_abstract, '.required .metadata .value.dc-abstract'
-  elements :attachment, '.optional .metadata .value.attachment'
+  elements :attachment, '.optional .metadata .value.attachment a'
   elements :actions, '.actions'
 
   def edit_link
