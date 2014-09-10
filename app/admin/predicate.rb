@@ -1,6 +1,12 @@
 ActiveAdmin.register Hydramata::Works::Predicates::Storage, as: 'PredicatesStorage' do
   menu label: 'Predicates'
-  permit_params config.resource_column_names - ['id', 'created_at', 'updated_at']
+
+  controller do
+    def permitted_params
+      params.permit(predicates_storage: self.class.resource_class.column_names - ['id', 'created_at', 'updated_at'])
+    end
+  end
+
   index do
     column :name_for_application_usage
     column :identity

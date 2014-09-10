@@ -1,6 +1,12 @@
 ActiveAdmin.register Hydramata::Works::WorkTypes::Storage, as: 'WorkTypesStorage' do
   menu label: 'Work Types'
-  permit_params config.resource_column_names - ['id', 'created_at', 'updated_at']
+
+  controller do
+    def permitted_params
+      params.permit(work_types_storage: self.class.resource_class.column_names - ['id', 'created_at', 'updated_at'])
+    end
+  end
+
   index do
     column :name_for_application_usage
     column :identity
@@ -21,7 +27,7 @@ ActiveAdmin.register Hydramata::Works::WorkTypes::Storage, as: 'WorkTypesStorage
         work_type.predicate_presentation_sequences.collect { |presentation|
           content_tag(
             'li',
-            link_to(presentation, admin_predicate_presentations_storage_path(presentation))
+            link_to(presentation, admin_predicate_presentation_sequences_storage_path(presentation))
           )
         }.join("\n").html_safe
       )

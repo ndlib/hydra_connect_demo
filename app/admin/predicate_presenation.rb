@@ -1,6 +1,12 @@
 ActiveAdmin.register Hydramata::Works::PredicatePresentationSequences::Storage, as: 'PredicatePresentationSequencesStorage' do
   menu label: 'Predicate Presentations'
-  permit_params config.resource_column_names - ['id', 'created_at', 'updated_at']
+
+  controller do
+    def permitted_params
+      params.permit(predicate_presentation_sequences_storage: self.class.resource_class.column_names - ['id', 'created_at', 'updated_at'])
+    end
+  end
+
   index do
     column :predicate_set, 'Predicate Set' do |presentation|
       link_to "#{presentation.predicate_set.identity} (#{presentation.predicate_set.work_type.identity})", admin_predicate_sets_storage_path(presentation.predicate_set)

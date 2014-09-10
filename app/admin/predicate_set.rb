@@ -1,6 +1,12 @@
 ActiveAdmin.register Hydramata::Works::PredicateSets::Storage, as: 'PredicateSetsStorage' do
   menu parent: "Work Types Storages", label: "Predicate Sets"
-  permit_params config.resource_column_names - ['id', 'created_at', 'updated_at']
+
+  controller do
+    def permitted_params
+      params.permit(predicate_sets_storage: self.class.resource_class.column_names - ['id', 'created_at', 'updated_at'])
+    end
+  end
+
   index do
     column :identity
     column :work_type, 'Work Type' do |predicate_set|
