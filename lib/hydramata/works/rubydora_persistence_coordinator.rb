@@ -20,16 +20,16 @@ module Hydramata
       end
 
       def call
-        remote_service.call(payload_document)
+        remote_service.call(work_document)
       end
 
       private
 
-      def payload_document
-        @payload_document ||= apply_properties_to(base_payload)
+      def work_document
+        @work_document ||= apply_properties_to(base_work_payload)
       end
 
-      def base_payload
+      def base_work_payload
         {
           "type" => "fobject",
           "pid" => "#{pid}",
