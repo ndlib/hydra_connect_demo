@@ -53,13 +53,13 @@ Application:
   - [X] Redirect to a location
 - [X] Meaningful JSON document for /works/article/new
   - [ ] BONUS: Better than meaningful. Something deliberate and useful.
-- [ ] Amend an existing Work Type via the UI
-  - [ ] Determine why Active Admin is not behaving correctly when updating
-  - [ ] Add a new predicate to the work type
-    - [ ] Edit an existing work of the given type to show new predicate
-  - [ ] Remove an existing predicate from a work type
-    - [ ] Show an existing work of the given type to show predicate is still displayed
-    - [ ] Edit an existing work of the given type to show predicate is still editable
+- [X] Amend an existing Work Type via the UI
+  - [X] Determine why Active Admin is not behaving correctly when updating
+  - [X] Add a new predicate to the work type
+    - [X] Edit an existing work of the given type to show new predicate
+  - [X] Remove an existing predicate from a work type
+    - [X] Show an existing work of the given type to show predicate is still displayed
+    - [X] Edit an existing work of the given type to show predicate is still editable
   - [ ] Add a custom show partial for a work type
   - [ ] Add a custom show partial for a property set
   - [ ] Add a custom show partial for a property

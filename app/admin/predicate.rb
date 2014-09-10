@@ -1,4 +1,6 @@
-ActiveAdmin.register Hydramata::Works::Predicates::Storage, as: 'Predicate' do
+ActiveAdmin.register Hydramata::Works::Predicates::Storage, as: 'PredicatesStorage' do
+  menu label: 'Predicates'
+  permit_params config.resource_column_names - ['id', 'created_at', 'updated_at']
   index do
     column :name_for_application_usage
     column :identity
@@ -9,8 +11,8 @@ ActiveAdmin.register Hydramata::Works::Predicates::Storage, as: 'Predicate' do
           content_tag(
             'li',
             link_to(
-              "#{predicate_set.work_type.identity} (#{predicate_set.identity})",
-              admin_work_type_path(predicate_set.work_type)
+              predicate_set,
+              admin_predicate_sets_storage_path(predicate_set.work_type)
             )
           )
       }.join(" ").html_safe )
