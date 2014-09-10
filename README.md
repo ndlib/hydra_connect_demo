@@ -60,9 +60,9 @@ Application:
   - [X] Remove an existing predicate from a work type
     - [X] Show an existing work of the given type to show predicate is still displayed
     - [X] Edit an existing work of the given type to show predicate is still editable
-  - [ ] Add a custom show partial for a work type
-  - [ ] Add a custom show partial for a property set
-  - [ ] Add a custom show partial for a property
+  - [ ] BONUS: Add a custom show partial for a work type
+  - [ ] BONUS: Add a custom show partial for a property set
+  - [ ] BONUS: Add a custom show partial for a property
 - [X] Leverage Translations
   - [X] For work type name
   - [X] For predicate label and hints
