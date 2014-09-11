@@ -37,10 +37,10 @@ Application:
   - [X] Display each of the predicates
   - [X] A button to edit the work
     - [ ] BONUS: Button is rendered based on state of object
-- [ ] UI for editing a new work
+- [X] UI for editing a new work
   - [X] Append new files
   - [X] With user input to append values to predicates
-  - [ ] Remove existing files
+  - [X] Remove existing files
   - [X] Show existing files
     - [X] Render the attachment name
     - [X] Render link to attachment
