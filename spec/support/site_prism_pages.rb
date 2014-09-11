@@ -58,4 +58,8 @@ class WorkEditPage < SitePrism::Page
   elements :links_to_existing_attachments, 'form.work fieldset.optional .attachment .values .existing-input'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
+
+  def dettach(attachment_name)
+    page.check("Delete #{attachment_name}")
+  end
 end
