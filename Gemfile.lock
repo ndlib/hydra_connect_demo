@@ -24,13 +24,13 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: a00d4c3182a1181421805d289685bb4836e3bd7c
+  revision: a4169a35d670e61c0bed72344dc56fb749eed646
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
       dragonfly (~> 1.0)
       psych (~> 2.0.5)
-      rails (~> 4.0)
+      rails (~> 4.1)
       rdf (~> 1.1)
 
 GIT
