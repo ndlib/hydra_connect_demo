@@ -72,7 +72,7 @@ feature 'Works#available_types page' do
     end
 
     WorkEditPage.within do |the_page|
-      expect(the_page.dc_title_existing_input.map(&:value)).to eq([''])
+      expect(the_page.dc_title_existing_input.map(&:value)).to eq([])
       expect(the_page.dc_abstract_existing_input.map(&:value)).to eq(['My Abstract'])
       the_page.dc_abstract_input.set('Another Abstract')
     end
@@ -94,7 +94,6 @@ feature 'Works#available_types page' do
     end
 
     WorkShowPage.within do |the_page|
-      expect(the_page).to be_all_there
       the_page.attachment.first.click
     end
 
