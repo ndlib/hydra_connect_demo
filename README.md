@@ -13,7 +13,7 @@ The specs found therein are my best effort at explaining what the application is
 
 Yes its code.
 But my goal with that spec is to be as descriptive as possible.
-If that code is confusing or not expressive enough, please [submit an Issue](/issues)
+If that code is confusing or not expressive enough, please [submit an Issue](https://github.com/ndlib/hydra_connect_demo/issues)
 
 ## Development
 
