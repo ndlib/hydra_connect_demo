@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: a4169a35d670e61c0bed72344dc56fb749eed646
+  revision: fec0e96c7ac10cdc0c04406af09d609fa93d902d
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
