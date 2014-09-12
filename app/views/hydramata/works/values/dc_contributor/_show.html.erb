@@ -1,0 +1,11 @@
+<%#
+You have access to a :show object.
+It is an instantiated instance of the predicate's :value_presenter_class_name.
+Good Luck!
+#%>
+<dl class="metadata">
+  <%= content_tag('dt', 'Name', show.dom_label_attributes(suffix: 'name')) %>
+  <% Array.wrap(show['name']).each do |name| %><%= content_tag('dd', name, show.dom_value_attributes(class: 'dc-contributor-name', suffix: 'name')) %><% end %>
+  <%= content_tag('dt', 'Role', show.dom_label_attributes(suffix: 'role')) %>
+  <% Array.wrap(show['role']).each do |role| %><%= content_tag('dd', role, show.dom_value_attributes(class: 'dc-contributor-role', suffix: 'role')) %><% end %>
+</dl>

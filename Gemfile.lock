@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/ndlib/hydramata-works.git
-  revision: 51589dcf6682fd4c098f8917b88a04b48a54b5a5
+  revision: 5661afab860b714efb1d1c26c510e6c5490779fe
   branch: master
   specs:
     hydramata-works (0.0.1.prerelease)
@@ -332,7 +332,6 @@ GEM
       capybara (>= 2.1, < 3.0)
     slop (3.6.0)
     sorcerer (1.0.2)
-    spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -411,7 +410,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   site_prism
-  spring
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)

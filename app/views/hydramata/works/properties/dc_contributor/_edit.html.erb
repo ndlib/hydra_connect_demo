@@ -1,0 +1,56 @@
+<%#
+You have access to a :edit and :form object.
+The form object is from the :form_for method of Rails (at least it should be).
+The :edit an instantiated instance of the predicate's presenter.
+
+See app/views/hydramata/works/properties/_edit.html.erb
+
+Good Luck!
+#%>
+
+<div class="<%= edit.dom_class %> form-group">
+  <%= label_tag(edit.dom_id_for_field, edit.label, edit.dom_label_attributes) %>
+  <div class="values">
+    <% edit.each_with_index do |value, index| %>
+    <dl>
+      <dt id="<%= edit.dom_id_for_label(suffix: 'name')%>">Name (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          edit.dom_id_for_field(suffix: 'name', index: index+1),
+          value['name'],
+          edit.dom_input_attributes(suffix: 'name', class: 'existing-input dc-contributor-name')
+        ) %>
+      </dd>
+      <dt id="<%= edit.dom_id_for_label(suffix: 'role')%>">Role (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          edit.dom_id_for_field(suffix: 'role', index: index+1),
+          value['role'],
+          edit.dom_input_attributes(suffix: 'role', class: 'existing-input dc-contributor-role')
+        ) %>
+      </dd>
+    </dl>
+    <% end %>
+    <dl>
+      <dt id="<%= edit.dom_id_for_label(suffix: 'name')%>">Name (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          edit.dom_id_for_field(suffix: 'name'),
+          nil,
+          edit.dom_input_attributes(suffix: 'name', class: 'blank-input')
+        ) %>
+      </dd>
+      <dt id="<%= edit.dom_id_for_label(suffix: 'role')%>">Role (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          edit.dom_id_for_field(suffix: 'role'),
+          nil,
+          edit.dom_input_attributes(suffix: 'role', class: 'blank-input')
+        ) %>
+      </dd>
+    </dl>
+  </div>
+  <% edit.with_text_for(:help) do |help| %>
+    <p class="help-block"><%= help %></p>
+  <% end %>
+</div>

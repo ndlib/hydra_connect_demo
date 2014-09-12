@@ -1,0 +1,35 @@
+<%#
+You have access to a :new and :form object.
+The form object is from the :form_for method of Rails (at least it should be).
+The :new an instantiated instance of the predicate's presenter.
+
+See app/views/hydramata/works/properties/_new.html.erb
+
+Good Luck!
+#%>
+<div class="<%= new.dom_class %> form-group">
+  <%= label_tag(new.dom_id_for_field, new.label, new.dom_label_attributes) %>
+  <div class="values">
+    <dl>
+      <dt id="<%= new.dom_id_for_label(suffix: 'name')%>">Name (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          new.dom_id_for_field(suffix: 'name'),
+          nil,
+          new.dom_input_attributes(suffix: 'name', class: 'blank-input')
+        ) %>
+      </dd>
+      <dt id="<%= new.dom_id_for_label(suffix: 'role')%>">Role (@TODO Translation)</dt>
+      <dd>
+        <%= text_field_tag(
+          new.dom_id_for_field(suffix: 'role'),
+          nil,
+          new.dom_input_attributes(suffix: 'role', class: 'blank-input')
+        ) %>
+      </dd>
+    </dl>
+  </div>
+  <% new.with_text_for(:help) do |help| %>
+    <p class="help-block"><%= help %></p>
+  <% end %>
+</div>
