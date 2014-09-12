@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910145307) do
+ActiveRecord::Schema.define(version: 20140912172316) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,19 +54,21 @@ ActiveRecord::Schema.define(version: 20140910145307) do
   add_index "hydramata_works_predicate_presentation_sequences", ["predicate_set_id", "presentation_sequence"], name: "hydramata_works_predicate_presentation_sequences_presentation", unique: true
 
   create_table "hydramata_works_predicate_sets", force: true do |t|
-    t.integer  "work_type_id",               null: false
-    t.string   "identity",                   null: false
-    t.integer  "presentation_sequence",      null: false
+    t.integer  "work_type_id",                          null: false
+    t.string   "identity",                              null: false
+    t.integer  "presentation_sequence",                 null: false
     t.string   "name_for_application_usage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "view_path_fragment",         limit: 32
+    t.string   "translation_key_fragment",   limit: 32
   end
 
   add_index "hydramata_works_predicate_sets", ["work_type_id", "identity"], name: "hydramata_works_predicate_set_identity", unique: true
   add_index "hydramata_works_predicate_sets", ["work_type_id", "presentation_sequence"], name: "hydramata_works_predicate_set_sequence", unique: true
 
   create_table "hydramata_works_predicates", force: true do |t|
-    t.string   "identity",                   null: false
+    t.string   "identity",                              null: false
     t.string   "name_for_application_usage"
     t.string   "datastream_name"
     t.string   "value_coercer_name"
@@ -80,17 +82,21 @@ ActiveRecord::Schema.define(version: 20140910145307) do
     t.string   "namespace_context_url"
     t.string   "namespace_context_name"
     t.string   "value_presenter_class_name"
+    t.string   "view_path_fragment",         limit: 32
+    t.string   "translation_key_fragment",   limit: 32
   end
 
   add_index "hydramata_works_predicates", ["identity"], name: "index_hydramata_works_predicates_on_identity", unique: true
   add_index "hydramata_works_predicates", ["name_for_application_usage"], name: "index_hydramata_works_predicates_on_name_for_application_usage", unique: true
 
   create_table "hydramata_works_types", force: true do |t|
-    t.string   "identity",                   null: false
+    t.string   "identity",                              null: false
     t.string   "name_for_application_usage"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "itemtype_schema_dot_org"
+    t.string   "view_path_fragment",         limit: 32
+    t.string   "translation_key_fragment",   limit: 32
   end
 
   add_index "hydramata_works_types", ["identity"], name: "index_hydramata_works_types_on_identity", unique: true
