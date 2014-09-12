@@ -19,8 +19,9 @@ predicate_title = Hydramata::Works::Predicates::Storage.create!(
   validations: '{ "presence_of_each": true }'
 )
 predicate_attachment = Hydramata::Works::Predicates::Storage.create!(
-  identity: 'opaque:attachment',
-  name_for_application_usage: 'attachment',
+  identity: 'opaque:file',
+  name_for_application_usage: 'file',
+  view_path_fragment: 'attachment',
   value_parser_name: 'AttachmentParser',
   value_presenter_class_name: 'AttachmentPresenter'
 )
