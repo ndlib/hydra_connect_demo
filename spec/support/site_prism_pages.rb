@@ -24,7 +24,7 @@ class WorkNewPage < SitePrism::Page
   element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
 
   element :optional_fieldset, 'form.work fieldset.optional caption'
-  element :attachment_input, 'form.work fieldset.optional #work_attachment_0'
+  element :file_input, 'form.work fieldset.optional #work_file_0'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
 end
@@ -32,7 +32,7 @@ end
 class WorkShowPage < SitePrism::Page
   elements :dc_title, '.required .metadata .value.dc-title'
   elements :dc_abstract, '.required .metadata .value.dc-abstract'
-  elements :attachment, '.optional .metadata .value.attachment a'
+  elements :file, '.optional .metadata .value.file a'
   elements :actions, '.actions'
 
   def edit_link
@@ -54,12 +54,12 @@ class WorkEditPage < SitePrism::Page
   element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
 
   element :optional_fieldset, 'form.work fieldset.optional caption'
-  element :attachment_input, 'form.work fieldset.optional .attachment #work_attachment_0'
-  elements :links_to_existing_attachments, 'form.work fieldset.optional .attachment .values .existing-input'
+  element :file_input, 'form.work fieldset.optional .file #work_file_0'
+  elements :links_to_existing_files, 'form.work fieldset.optional .file .values .existing-input'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
 
-  def dettach(attachment_name)
-    page.check("Delete #{attachment_name}")
+  def dettach(file_name)
+    page.check("Delete #{file_name}")
   end
 end
