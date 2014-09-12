@@ -6,6 +6,15 @@
 [![API Docs](http://img.shields.io/badge/API-docs-blue.svg)](http://rubydoc.info/github/ndlib/hydra_connect_demo/master/frames/)
 [![APACHE 2 License](http://img.shields.io/badge/APACHE2-license-blue.svg)](./LICENSE)
 
+## Getting Your Bearings
+
+Take a look at the [Works::LifecycleFeature spec](./spec/features/works/lifecycle_feature_spec.rb).
+The specs found therein are my best effort at explaining what the application is doing.
+
+Yes its code.
+But my goal with that spec is to be as descriptive as possible.
+If that code is confusing or not expressive enough, please [submit an Issue](./issues)
+
 ## Development
 
 Database Seeds for:
