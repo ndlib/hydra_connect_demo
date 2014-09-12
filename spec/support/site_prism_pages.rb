@@ -1,7 +1,26 @@
 require 'site_prism'
-module SitePrism::Within
-  def within(*args)
-    new(*args).tap {|page| yield(page) }
+module SitePrism
+  module Within
+    def within(*args)
+      new(*args).tap {|page| yield(page) }
+    end
+  end
+  module WorkFormHelpers
+    def existing_values_for(predicate)
+      all(%(form.work .#{predicate.to_s.gsub('_', '-')} .values .existing-input)).map(&:value)
+    end
+
+    def fill_in(predicate, with: nil)
+      find(%(form.work #work_#{predicate}_0)).set(with)
+    end
+
+    def attach(predicate, with: nil)
+      find(%(form.work #work_#{predicate}_0)).set(with)
+    end
+
+    def dettach(file_name)
+      page.check("Delete #{file_name}")
+    end
   end
 end
 
@@ -13,9 +32,14 @@ class WorksAvailableTypesPage < SitePrism::Page
   element :new_document_link, %(.work-type .btn[href="/works/document/new"])
   element :new_article_link, %(.work-type .btn[href="/works/article/new"])
   elements :new_link_container, '.available-types .work-type'
+
+  def link_for_new(work_type)
+    find(%(.work-type .btn[href="/works/#{work_type}/new"]))
+  end
 end
 
 class WorkNewPage < SitePrism::Page
+  include SitePrism::WorkFormHelpers
   set_url_matcher %r{/works/\w+/new}
   element :required_fieldset, 'form.work fieldset.required caption'
   element :dc_title_label, 'form.work fieldset.required #label_for_work_dc_title'
@@ -27,6 +51,7 @@ class WorkNewPage < SitePrism::Page
   element :file_input, 'form.work fieldset.optional #work_file_0'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
+
 end
 
 class WorkShowPage < SitePrism::Page
@@ -34,6 +59,10 @@ class WorkShowPage < SitePrism::Page
   elements :dc_abstract, '.required .metadata .value.dc-abstract'
   elements :file, '.optional .metadata .value.file a'
   elements :actions, '.actions'
+
+  def text_for(predicate)
+    all(%(.metadata .value.#{predicate.to_s.gsub('_', '-')})).map(&:text)
+  end
 
   def edit_link
     find(%(.actions a[href="/works/#{identity}/edit"]))
@@ -45,6 +74,8 @@ class WorkShowPage < SitePrism::Page
 end
 
 class WorkEditPage < SitePrism::Page
+  include SitePrism::WorkFormHelpers
+
   element :required_fieldset, 'form.work fieldset.required caption'
   element :dc_title_label, 'form.work fieldset.required #label_for_work_dc_title'
   elements :dc_title_existing_input, 'form.work fieldset.required .dc-title .values .existing-input'
@@ -59,7 +90,4 @@ class WorkEditPage < SitePrism::Page
 
   element :submit_button, 'form.work .actions input[name="commit"]'
 
-  def dettach(file_name)
-    page.check("Delete #{file_name}")
-  end
 end
