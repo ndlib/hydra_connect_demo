@@ -24,12 +24,7 @@ en:
   hydramata:
     core:
       work_types:
-        document:
-          name: 'Document'
-          description: 'A thing of words'
         article:
-          name: 'Article'
-          description: 'Here there be dragons'
           fieldsets:
             required:
               label: Required Article Attributes
@@ -53,8 +48,6 @@ en:
       fieldsets:
         required:
           label: Required Attributes
-        optional:
-          label: Optional Attributes
       actions:
         create:
           type: submit
