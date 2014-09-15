@@ -1,4 +1,5 @@
 // import the CSS framework
+@import "cosmo-theme";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -31,13 +32,12 @@ img {
   @extend .btn-primary;
   @extend .btn-lg;
   }
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
-  width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
 section {
