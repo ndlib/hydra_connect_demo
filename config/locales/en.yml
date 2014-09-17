@@ -24,7 +24,12 @@ en:
   hydramata:
     core:
       work_types:
+        document:
+          name: Document
+          description: A bucket of words not associated with other buckets.
         article:
+          name: Article
+          description: A bucket of words as part of a bigger bucket of words.
           fieldsets:
             required:
               label: Required Article Attributes
