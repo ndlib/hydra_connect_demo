@@ -7,7 +7,7 @@ module SitePrism
   end
   module WorkFormHelpers
     def existing_values_for(predicate)
-      all(%(form.work .#{predicate.to_s.gsub('_', '-')} .values .existing-input)).map(&:value)
+      all(%(form.work .#{predicate.to_s.gsub('_', '-')}.existing-input)).map(&:value)
     end
 
     def fill_in(predicate, with: nil)
@@ -55,13 +55,13 @@ class WorkNewPage < SitePrism::Page
 end
 
 class WorkShowPage < SitePrism::Page
-  elements :dc_title, '.required .metadata .value.dc-title'
-  elements :dc_abstract, '.optional .metadata .value.dc-abstract'
-  elements :file, '.optional .metadata .value.file a'
+  elements :dc_title, '.required .metadata .property-value.value.dc-title'
+  elements :dc_abstract, '.required .metadata .property-value.dc-abstract'
+  elements :file, '.optional .metadata .property-value.file a'
   elements :actions, '.actions'
 
   def text_for(predicate)
-    all(%(.metadata .value.#{predicate.to_s.gsub('_', '-')})).map(&:text)
+    all(%(.metadata .property-value.#{predicate.to_s.gsub('_', '-')})).map(&:text)
   end
 
   def edit_link
@@ -78,15 +78,17 @@ class WorkEditPage < SitePrism::Page
 
   element :required_fieldset, 'form.work fieldset.required legend'
   element :dc_title_label, 'form.work fieldset.required #label_for_work_dc_title'
-  elements :dc_title_existing_input, 'form.work fieldset.required .dc-title .values .existing-input'
+  elements :dc_title_existing_input, 'form.work fieldset.required .property-value.dc-title .existing-input'
   element :dc_title_input, 'form.work fieldset.required #work_dc_title_0'
 
   element :optional_fieldset, 'form.work fieldset.optional legend'
-  element :dc_abstract_label, 'form.work fieldset.optional #label_for_work_dc_abstract'
-  elements :dc_abstract_existing_input, 'form.work fieldset.optional .dc-abstract .values .existing-input'
-  element :dc_abstract_input, 'form.work fieldset.optional #work_dc_abstract_0'
-  element :file_input, 'form.work fieldset.optional .file #work_file_0'
-  elements :links_to_existing_files, 'form.work fieldset.optional .file .values .existing-input'
+  element :dc_abstract_label, 'form.work fieldset.required #label_for_work_dc_abstract'
+  elements :dc_abstract_existing_input, 'form.work fieldset.required .property-value.dc-abstract .existing-input'
+  element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
+
+  element :optional_fieldset, 'form.work fieldset.optional legend'
+  element :file_input, 'form.work fieldset.optional .property-input.file #work_file_0'
+  elements :links_to_existing_files, 'form.work fieldset.optional .file.existing-input'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
 
