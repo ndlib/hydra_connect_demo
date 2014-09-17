@@ -47,8 +47,8 @@ predicate_creator = Hydramata::Works::Predicates::Storage.create!(identity: 'htt
   work_type = Hydramata::Works::WorkTypes::Storage.create(identity: identifier, name_for_application_usage: identifier)
   predicate_set = Hydramata::Works::PredicateSets::Storage.create!(identity: 'required', work_type: work_type, presentation_sequence: 1, name_for_application_usage: 'required')
   predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 1, predicate: predicate_title)
-  predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 2, predicate: predicate_abstract)
 
   optional_predicate_set = Hydramata::Works::PredicateSets::Storage.create!(identity: 'optional', work_type: work_type, presentation_sequence: 2, name_for_application_usage: 'optional')
-  optional_predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 1, predicate: predicate_attachment)
+  optional_predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 1, predicate: predicate_abstract)
+  optional_predicate_set.predicate_presentation_sequences.create!(presentation_sequence: 2, predicate: predicate_attachment)
 end

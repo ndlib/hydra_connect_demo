@@ -44,10 +44,10 @@ class WorkNewPage < SitePrism::Page
   element :required_fieldset, 'form.work fieldset.required legend'
   element :dc_title_label, 'form.work fieldset.required #label_for_work_dc_title'
   element :dc_title_input, 'form.work fieldset.required #work_dc_title_0'
-  element :dc_abstract_label, 'form.work fieldset.required #label_for_work_dc_abstract'
-  element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
 
   element :optional_fieldset, 'form.work fieldset.optional legend'
+  element :dc_abstract_label, 'form.work fieldset.optional #label_for_work_dc_abstract'
+  element :dc_abstract_input, 'form.work fieldset.optional #work_dc_abstract_0'
   element :file_input, 'form.work fieldset.optional #work_file_0'
 
   element :submit_button, 'form.work .actions input[name="commit"]'
@@ -56,7 +56,7 @@ end
 
 class WorkShowPage < SitePrism::Page
   elements :dc_title, '.required .metadata .value.dc-title'
-  elements :dc_abstract, '.required .metadata .value.dc-abstract'
+  elements :dc_abstract, '.optional .metadata .value.dc-abstract'
   elements :file, '.optional .metadata .value.file a'
   elements :actions, '.actions'
 
@@ -80,11 +80,11 @@ class WorkEditPage < SitePrism::Page
   element :dc_title_label, 'form.work fieldset.required #label_for_work_dc_title'
   elements :dc_title_existing_input, 'form.work fieldset.required .dc-title .values .existing-input'
   element :dc_title_input, 'form.work fieldset.required #work_dc_title_0'
-  element :dc_abstract_label, 'form.work fieldset.required #label_for_work_dc_abstract'
-  elements :dc_abstract_existing_input, 'form.work fieldset.required .dc-abstract .values .existing-input'
-  element :dc_abstract_input, 'form.work fieldset.required #work_dc_abstract_0'
 
   element :optional_fieldset, 'form.work fieldset.optional legend'
+  element :dc_abstract_label, 'form.work fieldset.optional #label_for_work_dc_abstract'
+  elements :dc_abstract_existing_input, 'form.work fieldset.optional .dc-abstract .values .existing-input'
+  element :dc_abstract_input, 'form.work fieldset.optional #work_dc_abstract_0'
   element :file_input, 'form.work fieldset.optional .file #work_file_0'
   elements :links_to_existing_files, 'form.work fieldset.optional .file .values .existing-input'
 
