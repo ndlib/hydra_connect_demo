@@ -1,46 +1,65 @@
-// import the CSS framework
+// Import the CSS framework
 @import "cosmo-theme";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// make all images responsive by default
-img {
-  @extend .img-responsive;
-  margin: 0 auto;
-  }
-// override for the 'Home' navigation link
-.navbar-brand {
-  font-size: inherit;
-  }
-
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-  }
-.form {
-  @extend .col-md-6;
-  }
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-  }
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-  }
-
-// apply styles to HTML elements
-// to make views framework-neutral
+// Apply styles to HTML elements to make views framework-neutral
 main {
   @extend .container;
   padding-bottom: 80px;
   margin-top: 51px; // accommodate the navbar
-  }
+}
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+// Make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+}
+
+// Work forms
+form.work {
+  padding-top:1em;
+}
+.property-input[type=text] {
+  @extend .form-control;
+}
+.property-input + .property-input {
+  margin-top:1em;
+}
+.named-action {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+// Show page
+article.work {
+  @extend .container;
+  section {
+    @extend .row;
   }
+}
+article.work + .actions {
+    padding-top:1em;
+}
+dl.metadata {
+  @extend .dl-horizontal;
+}
+
+// Work type listing
+.available-types {
+  margin:0;
+  padding:0;
+
+  .work-type {
+    list-style-type:none;
+
+    .add-button {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}

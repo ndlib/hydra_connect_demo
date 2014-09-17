@@ -26,15 +26,14 @@ end
 
 SitePrism::Page.extend(SitePrism::Within)
 
-
 class WorksAvailableTypesPage < SitePrism::Page
   set_url '/works/available_types'
-  element :new_document_link, %(.work-type .btn[href="/works/document/new"])
-  element :new_article_link, %(.work-type .btn[href="/works/article/new"])
+  element :new_document_link, %(.available-types .work-type .add-button[href="/works/document/new"])
+  element :new_article_link, %(.available-types .work-type .add-button[href="/works/article/new"])
   elements :new_link_container, '.available-types .work-type'
 
   def link_for_new(work_type)
-    find(%(.work-type .btn[href="/works/#{work_type}/new"]))
+    find(%(.work-type .add-button[href="/works/#{work_type}/new"]))
   end
 end
 
