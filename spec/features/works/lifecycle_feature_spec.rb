@@ -19,6 +19,8 @@ feature 'Works#available_types page' do
       expect(the_page).to be_all_there
       the_page.fill_in('dc_title', with: 'My Title')
       the_page.fill_in('dc_abstract', with: 'My Abstract')
+      the_page.fill_in('dc_contributor_name', with: 'Jeremy Friesen')
+      the_page.fill_in('dc_contributor_role', with: 'Author')
       the_page.attach(
         'file', with: [
           File.expand_path('../../../../LICENSE', __FILE__),
@@ -33,6 +35,8 @@ feature 'Works#available_types page' do
     show_page = WorkShowPage.within do |the_page|
       expect(the_page.text_for('dc_title')).to eq(['My Title'])
       expect(the_page.text_for('dc_abstract')).to eq(['My Abstract'])
+      expect(the_page.text_for('dc_contributor_name')).to eq(['Jeremy Friesen'])
+      expect(the_page.text_for('dc_contributor_role')).to eq(['Author'])
       expect(the_page.text_for('file')).to eq(['README.md', 'LICENSE'])
       expect(the_page.file[0][:href]).to match(/^\/.*_README.md$/)
       expect(the_page.file[1][:href]).to match(/^\/.*_LICENSE$/)
@@ -42,10 +46,14 @@ feature 'Works#available_types page' do
     WorkEditPage.within do |the_page|
       expect(the_page.existing_values_for('dc_title')).to eq(['My Title'])
       expect(the_page.existing_values_for('dc_abstract')).to eq(['My Abstract'])
+      expect(the_page.existing_values_for('dc_contributor_name')).to eq(['Jeremy Friesen'])
+      expect(the_page.existing_values_for('dc_contributor_role')).to eq(['Author'])
       expect(the_page.links_to_existing_files.map(&:text)).to eq(['README.md', 'LICENSE'])
 
       the_page.fill_in('dc_title', with: 'Another Title')
       the_page.fill_in('dc_abstract', with: 'Another Abstract')
+      the_page.fill_in('dc_contributor_name', with: 'Dan Brubaker-Horst')
+      the_page.fill_in('dc_contributor_role', with: 'Contributor')
       the_page.attach('file', with: [File.expand_path('../../../../Rakefile', __FILE__)])
       the_page.dettach('README.md')
 
@@ -56,6 +64,8 @@ feature 'Works#available_types page' do
       expect(the_page.identity).to eq(show_page.identity)
       expect(the_page.text_for('dc_title')).to eq(['My Title', 'Another Title'])
       expect(the_page.text_for('dc_abstract')).to eq(['My Abstract', 'Another Abstract'])
+      expect(the_page.text_for('dc_contributor_name')).to eq(['Jeremy Friesen', 'Dan Brubaker-Horst'])
+      expect(the_page.text_for('dc_contributor_role')).to eq(['Author', 'Contributor'])
       expect(the_page.text_for('file')).to eq(['LICENSE', 'Rakefile'])
     end
   end
