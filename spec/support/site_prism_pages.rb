@@ -1,8 +1,8 @@
 require 'site_prism'
 module SitePrism
-  module Within
-    def within(*args)
-      new(*args).tap {|page| yield(page) }
+  module OnThisPage
+    def on_this_page(klass)
+      klass.new.tap { |p| yield(p) }
     end
   end
   module WorkFormHelpers
@@ -24,7 +24,10 @@ module SitePrism
   end
 end
 
-SitePrism::Page.extend(SitePrism::Within)
+RSpec.configure do |config|
+  config.include SitePrism::OnThisPage
+end
+
 
 class WorksAvailableTypesPage < SitePrism::Page
   set_url '/works/available_types'

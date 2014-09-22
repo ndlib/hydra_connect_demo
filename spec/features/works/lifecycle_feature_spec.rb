@@ -9,13 +9,13 @@ feature 'Works#available_types page' do
 
   scenario 'Creating a work with valid data' do
 
-    WorksAvailableTypesPage.within do |the_page|
+    on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
       expect(the_page).to be_all_there
       the_page.link_for_new('article').click
     end
 
-    WorkNewPage.within do |the_page|
+    on_this_page(WorkNewPage) do |the_page|
       expect(the_page).to be_all_there
       the_page.fill_in('dc_title', with: 'My Title')
       the_page.fill_in('dc_abstract', with: 'My Abstract')
@@ -32,7 +32,7 @@ feature 'Works#available_types page' do
 
     # @TODO - Message saying work was created
 
-    show_page = WorkShowPage.within do |the_page|
+    show_page = on_this_page(WorkShowPage) do |the_page|
       expect(the_page.text_for('dc_title')).to eq(['My Title'])
       expect(the_page.text_for('dc_abstract')).to eq(['My Abstract'])
       expect(the_page.text_for('dc_contributor_name')).to eq(['Jeremy Friesen'])
@@ -43,7 +43,7 @@ feature 'Works#available_types page' do
       the_page.edit_link.click
     end
 
-    WorkEditPage.within do |the_page|
+    on_this_page(WorkEditPage) do |the_page|
       expect(the_page.existing_values_for('dc_title')).to eq(['My Title'])
       expect(the_page.existing_values_for('dc_abstract')).to eq(['My Abstract'])
       expect(the_page.existing_values_for('dc_contributor_name')).to eq(['Jeremy Friesen'])
@@ -60,7 +60,7 @@ feature 'Works#available_types page' do
       the_page.submit_button.click
     end
 
-    WorkShowPage.within do |the_page|
+    on_this_page(WorkShowPage) do |the_page|
       expect(the_page.identity).to eq(show_page.identity)
       expect(the_page.text_for('dc_title')).to eq(['My Title', 'Another Title'])
       expect(the_page.text_for('dc_abstract')).to eq(['My Abstract', 'Another Abstract'])
@@ -72,18 +72,18 @@ feature 'Works#available_types page' do
 
   scenario 'Creating a work with invalid data' do
 
-    WorksAvailableTypesPage.within do |the_page|
+    on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
       expect(the_page).to be_all_there
       the_page.new_article_link.click
     end
 
-    WorkNewPage.within do |the_page|
+    on_this_page(WorkNewPage) do |the_page|
       the_page.fill_in('dc_abstract', with: 'My Abstract')
       the_page.submit_button.click
     end
 
-    WorkEditPage.within do |the_page|
+    on_this_page(WorkEditPage) do |the_page|
       expect(the_page.existing_values_for('dc_title')).to eq([])
       expect(the_page.existing_values_for('dc_abstract')).to eq(['My Abstract'])
     end
@@ -92,19 +92,19 @@ feature 'Works#available_types page' do
   scenario 'Making sure the file is clickable and downloadable' do
     file_path = File.expand_path('../../../../LICENSE', __FILE__)
 
-    WorksAvailableTypesPage.within do |the_page|
+    on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
       expect(the_page).to be_all_there
       the_page.new_article_link.click
     end
 
-    WorkNewPage.within do |the_page|
+    on_this_page(WorkNewPage) do |the_page|
       the_page.fill_in('dc_title', with: 'My Title')
       the_page.attach('file', with: file_path)
       the_page.submit_button.click
     end
 
-    WorkShowPage.within do |the_page|
+    on_this_page(WorkShowPage) do |the_page|
       the_page.file.first.click
     end
 
