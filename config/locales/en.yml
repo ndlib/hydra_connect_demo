@@ -25,10 +25,10 @@ en:
     core:
       work_types:
         document:
-          name: Document
+          label: Document
           description: A bucket of words alone in this world.
         article:
-          name: Article
+          label: Article
           description: A bucket of words inside another bucket of words.
           fieldsets:
             required:

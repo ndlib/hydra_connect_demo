@@ -28,18 +28,21 @@ class WorksController < ApplicationController
     run(work_type, work_attribute_params) do |on|
       on.success do |work|
         @work = work
+        flash[:notice] = "#{work} was created."
         respond_with do |wants|
           wants.html { redirect_to work_path(@work) }
         end
       end
       on.created_with_invalid_data do |work|
         @work = work
+        flash[:notice] = "#{work} was created but we need more information."
         respond_with do |wants|
           wants.html { redirect_to edit_work_path(@work) }
         end
       end
       on.failure do |work|
         @work = work
+        flash.now[:notice] = "#{work} was not created."
         @work.form_options = new_and_create_form_options
         respond_with(@work)
       end
@@ -69,18 +72,21 @@ class WorksController < ApplicationController
     run(work_identifier, work_attribute_params) do |on|
       on.success do |work|
         @work = work
+        flash[:notice] = "#{work} was updated."
         respond_with do |wants|
           wants.html { redirect_to work_path(@work) }
         end
       end
       on.updated_with_invalid_data do |work|
         @work = work
+        flash[:notice] = "#{work} was updated but we need more information."
         respond_with do |wants|
           wants.html { redirect_to edit_work_path(@work) }
         end
       end
       on.failure do |work|
         @work = work
+        flash[:notice] = "#{work} could not be updated."
         @work.form_options = edit_and_update_form_options
         respond_with(@work)
       end
