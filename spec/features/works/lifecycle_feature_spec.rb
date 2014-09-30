@@ -1,13 +1,12 @@
 require 'rails_helper'
 require 'support/site_prism_pages'
 
-feature 'Works#available_types page' do
+feature 'Creating a work' do
   before do
-    # The seeds are very important; They define the structures.
     load "#{Rails.root}/db/seeds.rb"
   end
 
-  scenario 'Creating a work with valid data' do
+  scenario 'with valid data and file uploads' do
 
     on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
@@ -23,14 +22,12 @@ feature 'Works#available_types page' do
       the_page.fill_in('dc_contributor_role', with: 'Author')
       the_page.attach(
         'file', with: [
-          File.expand_path('../../../../LICENSE', __FILE__),
-          File.expand_path('../../../../README.md', __FILE__)
+          path_to_file_in_project('LICENSE'),
+          path_to_file_in_project('README.md')
         ]
       )
       the_page.submit_button.click
     end
-
-    # @TODO - Message saying work was created
 
     show_page = on_this_page(WorkShowPage) do |the_page|
       expect(the_page.text_for('dc_title')).to eq(['My Title'])
@@ -54,7 +51,7 @@ feature 'Works#available_types page' do
       the_page.fill_in('dc_abstract', with: 'Another Abstract')
       the_page.fill_in('dc_contributor_name', with: 'Dan Brubaker-Horst')
       the_page.fill_in('dc_contributor_role', with: 'Contributor')
-      the_page.attach('file', with: [File.expand_path('../../../../Rakefile', __FILE__)])
+      the_page.attach('file', with: [path_to_file_in_project('Rakefile')])
       the_page.dettach('README.md')
 
       the_page.submit_button.click
@@ -70,7 +67,7 @@ feature 'Works#available_types page' do
     end
   end
 
-  scenario 'Creating a work with invalid data' do
+  scenario 'with invalid data' do
 
     on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
@@ -89,8 +86,8 @@ feature 'Works#available_types page' do
     end
   end
 
-  scenario 'Making sure the file is clickable and downloadable' do
-    file_path = File.expand_path('../../../../LICENSE', __FILE__)
+  scenario 'with an uploaded file that can be downloaded' do
+    file_path = path_to_file_in_project('LICENSE')
 
     on_this_page(WorksAvailableTypesPage) do |the_page|
       the_page.load
@@ -111,4 +108,9 @@ feature 'Works#available_types page' do
     # I downloaded the file
     expect(page.html).to eq(File.read(file_path))
   end
+
+  def path_to_file_in_project(filename)
+    File.expand_path(File.join('../../../..', filename), __FILE__)
+  end
+
 end
