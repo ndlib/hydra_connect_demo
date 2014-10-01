@@ -43,16 +43,21 @@ en:
       properties:
         dc_title:
           label: 'Title'
-          hint: "See Dublin Core Title"
-        attachment:
+          help: "See Dublin Core Title"
+        file:
           label: 'Associated Files'
-          hint: "Upload One or More Files"
+          help: "Upload One or More Files"
         dc_abstract:
           label: 'Abstract'
-          hint: "See Dublin Core Abstract"
+          help: "See Dublin Core Abstract"
+        dc_contributor:
+          label: 'Contributor'
+          help: "See Dublin Core Contributor"
       fieldsets:
         required:
           label: Required Attributes
+        optional:
+          label: Optional Attributes
       actions:
         create:
           type: submit
