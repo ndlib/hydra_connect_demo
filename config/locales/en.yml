@@ -46,7 +46,7 @@ en:
           help: "See Dublin Core Title"
         file:
           label: 'Associated Files'
-          help: "Upload One or More Files"
+          help: "Upload One or More Files (Use Cmd+Click to select multiple files)"
         dc_abstract:
           label: 'Abstract'
           help: "See Dublin Core Abstract"
